@@ -112,8 +112,8 @@ social_icons:
 #links:
   #Title: http://example.com/
 
-# Sidebar Avatar
-# in theme directory(source/images): /images/avatar.jpg
+ Sidebar Avatar
+  in theme directory(source/images): /images/avatar.jpg
 # in site  directory(source/uploads): /uploads/avatar.jpg
 #avatar:
 
@@ -157,7 +157,7 @@ sidebar:
 
   # Scroll percent label in b2t button
   scrollpercent: false
-  
+
   # Enable sidebar on narrow view
   onmobile: false
 
@@ -381,7 +381,7 @@ facebook_comments_plugin:
   enable: false
   num_of_posts: 10  # min posts num is 1
   width: 100%       # default width is 550px
-  scheme: light     # default scheme is light (light or dark)
+  scheme: Pisces     # default scheme is light (light or dark)
 
 # VKontakte API Support.
 # To get your AppID visit https://vk.com/editapp?act=create
