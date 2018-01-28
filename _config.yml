@@ -45,7 +45,7 @@ highlight:
 
 # Category & Tag
 default_category: uncategorized
-category_map:
+category_map: 
 tag_map:
 
 # Date / Time format
