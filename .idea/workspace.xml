@@ -5,7 +5,6 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/source/_posts/123.md" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/source/_posts/git.md" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/source/_posts/git行为.md" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/next/_config.yml" afterPath="$PROJECT_DIR$/themes/next/_config.yml" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -30,44 +29,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="zh-Hans.yml" pinned="false" current-in-tab="false">
+      <file leaf-file-name="zh-Hans.yml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/themes/next/languages/zh-Hans.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="13" column="7" lean-forward="false" selection-start-line="13" selection-start-column="2" selection-end-line="13" selection-end-column="7" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="_config.yml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/themes/next/_config.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="380">
-              <caret line="188" column="18" lean-forward="true" selection-start-line="188" selection-start-column="18" selection-end-line="188" selection-end-column="18" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="default.yml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/themes/next/languages/default.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1425">
-              <caret line="75" column="7" lean-forward="false" selection-start-line="75" selection-start-column="7" selection-end-line="75" selection-end-column="7" />
-              <folding>
-                <marker date="1514260242263" expanded="true" signature="0:18" ph="title: &lt;4 keys&gt;" />
-                <marker date="1514260242263" expanded="true" signature="1556:1557" ph="：" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="测试.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/_posts/测试.md">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="456">
-              <caret line="24" column="89" lean-forward="false" selection-start-line="24" selection-start-column="89" selection-end-line="24" selection-end-column="89" />
+            <state relative-caret-position="171">
+              <caret line="9" column="10" lean-forward="true" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -106,8 +72,8 @@
       <find>vendo</find>
       <find>vendor</find>
       <find>scheme</find>
-      <find>theme</find>
       <find>归档</find>
+      <find>theme</find>
     </findStrings>
     <dirStrings>
       <dir>D:\blog</dir>
@@ -294,15 +260,15 @@
       <updated>1500176390438</updated>
       <workItem from="1500176391931" duration="3329000" />
       <workItem from="1513926941866" duration="731000" />
-      <workItem from="1517128457238" duration="78000" />
+      <workItem from="1517128457238" duration="347000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7014000" />
+    <option name="totallyTimeSpent" value="7283000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -562,22 +528,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/themes/next/languages/default.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1425">
-          <caret line="75" column="7" lean-forward="false" selection-start-line="75" selection-start-column="7" selection-end-line="75" selection-end-column="7" />
-          <folding>
-            <marker date="1514260242263" expanded="true" signature="0:18" ph="title: &lt;4 keys&gt;" />
-            <marker date="1514260242263" expanded="true" signature="1556:1557" ph="：" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/source/_posts/2017-07-13.md">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="58" column="29" lean-forward="false" selection-start-line="58" selection-start-column="29" selection-end-line="58" selection-end-column="29" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/next/_config.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="636">
+          <caret line="619" column="14" lean-forward="true" selection-start-line="619" selection-start-column="14" selection-end-line="619" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/next/languages/default.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="823">
+          <caret line="75" column="7" lean-forward="false" selection-start-line="75" selection-start-column="7" selection-end-line="75" selection-end-column="7" />
+          <folding>
+            <marker date="1514260242263" expanded="true" signature="0:18" ph="title: &lt;4 keys&gt;" />
+            <marker date="1514260242263" expanded="true" signature="1556:1557" ph="：" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -591,16 +565,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/themes/next/languages/zh-Hans.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="13" column="7" lean-forward="false" selection-start-line="13" selection-start-column="2" selection-end-line="13" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/themes/next/_config.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="188" column="18" lean-forward="true" selection-start-line="188" selection-start-column="18" selection-end-line="188" selection-end-column="18" />
+        <state relative-caret-position="171">
+          <caret line="9" column="10" lean-forward="true" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="10" />
           <folding />
         </state>
       </provider>
