@@ -62,11 +62,11 @@ menu:
 menu_icons:
   enable: true
   #KeyMapsToMenuItemKey: NameOfTheIconFromFontAwesome
-  首页: home
-  关于: user
+  home: home
+  about: user
   categories: th
   schedule: calendar
-  标签: tags
+  tags: tags
   archives: archive
   sitemap: sitemap
   commonweal: heartbeat
@@ -157,7 +157,7 @@ sidebar:
 
   # Scroll percent label in b2t button
   scrollpercent: false
-  
+
   # Enable sidebar on narrow view
   onmobile: false
 
