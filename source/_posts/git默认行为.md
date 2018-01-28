@@ -55,7 +55,7 @@ upstream & downstream
 
 注意push.default = current可以在远程同名分支不存在的情况下自动创建同名分支，有些时候这也是个极其方便的模式，比如初次push你可以直接输入 git push 而不必显示指定远程分支。
 
-###2. git pull
+### 2. git pull
 
 弄清楚git push的默认行为后，再来看看git pull。
 
@@ -76,7 +76,7 @@ git pull的默认行为和git push完全不同。当我们执行git pull的时�
 当我们进行pull的第二个行为merge时，对git来说，如果我们没有设定当前分支的upstream，它并不知道我们要合并哪个分支到当前分支，所以我们需要通过下面的代码指定当前分支的upstream：
 
 	git branch --set-upstream-to=origin/<branch> develop  
-// 或者git push --set-upstream origin develop 
+	// 或者git push --set-upstream origin develop 
 实际上，如果我们没有指定upstream，git在merge时会访问git config中当前分支(develop)merge的默认配置，我们可以通过配置下面的内容指定某个分支的默认merge操作
 
 	[branch "develop"]
