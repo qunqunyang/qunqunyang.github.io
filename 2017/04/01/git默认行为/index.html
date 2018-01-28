@@ -93,19 +93,19 @@
 
 
 
-<meta name="description" content="title: 聊一聊git1. Git push与pull的默认行为 一直以来对git push与git pull命令的默认行为感觉混乱，今天抽空总结下。
-git push 通常在一个本地新建分支。git checkout -b develop,在develop分支commit了代码之后。如果直接执行git push命令，develop分支将不会被push到远程仓库（但此时git push操作有">
+<meta name="description" content="1. Git push与pull的默认行为 一直以来对git push与git pull命令的默认行为感觉混乱，今天抽空总结下。
+git push 通常在一个本地新建分支。git checkout -b develop,在develop分支commit了代码之后。如果直接执行git push命令，develop分支将不会被push到远程仓库（但此时git push操作有可能会推送一些代码到远程仓库">
 <meta property="og:type" content="article">
-<meta property="og:title" content="yangqun">
+<meta property="og:title" content="聊一聊git">
 <meta property="og:url" content="http://qunqunyang.me/2017/04/01/git默认行为/index.html">
 <meta property="og:site_name" content="yangqun">
-<meta property="og:description" content="title: 聊一聊git1. Git push与pull的默认行为 一直以来对git push与git pull命令的默认行为感觉混乱，今天抽空总结下。
-git push 通常在一个本地新建分支。git checkout -b develop,在develop分支commit了代码之后。如果直接执行git push命令，develop分支将不会被push到远程仓库（但此时git push操作有">
-<meta property="og:updated_time" content="2018-01-28T07:52:50.376Z">
+<meta property="og:description" content="1. Git push与pull的默认行为 一直以来对git push与git pull命令的默认行为感觉混乱，今天抽空总结下。
+git push 通常在一个本地新建分支。git checkout -b develop,在develop分支commit了代码之后。如果直接执行git push命令，develop分支将不会被push到远程仓库（但此时git push操作有可能会推送一些代码到远程仓库">
+<meta property="og:updated_time" content="2018-01-28T08:03:04.227Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="yangqun">
-<meta name="twitter:description" content="title: 聊一聊git1. Git push与pull的默认行为 一直以来对git push与git pull命令的默认行为感觉混乱，今天抽空总结下。
-git push 通常在一个本地新建分支。git checkout -b develop,在develop分支commit了代码之后。如果直接执行git push命令，develop分支将不会被push到远程仓库（但此时git push操作有">
+<meta name="twitter:title" content="聊一聊git">
+<meta name="twitter:description" content="1. Git push与pull的默认行为 一直以来对git push与git pull命令的默认行为感觉混乱，今天抽空总结下。
+git push 通常在一个本地新建分支。git checkout -b develop,在develop分支commit了代码之后。如果直接执行git push命令，develop分支将不会被push到远程仓库（但此时git push操作有可能会推送一些代码到远程仓库">
 
 
 
@@ -139,7 +139,7 @@ git push 通常在一个本地新建分支。git checkout -b develop,在develop�
 
 
 
-  <title> | yangqun</title>
+  <title>聊一聊git | yangqun</title>
   
 
 
@@ -275,7 +275,7 @@ git push 通常在一个本地新建分支。git checkout -b develop,在develop�
 
         
         
-          <h1 class="post-title" itemprop="name headline"></h1>
+          <h1 class="post-title" itemprop="name headline">聊一聊git</h1>
         
 
         <div class="post-meta">
@@ -322,8 +322,7 @@ git push 通常在一个本地新建分支。git checkout -b develop,在develop�
       
 
       
-        <hr>
-<h2 id="title-聊一聊git"><a href="#title-聊一聊git" class="headerlink" title="title: 聊一聊git"></a>title: 聊一聊git</h2><h3 id="1-Git-push与pull的默认行为"><a href="#1-Git-push与pull的默认行为" class="headerlink" title="1. Git push与pull的默认行为"></a>1. Git push与pull的默认行为</h3><p> 一直以来对git push与git pull命令的默认行为感觉混乱，今天抽空总结下。</p>
+        <h3 id="1-Git-push与pull的默认行为"><a href="#1-Git-push与pull的默认行为" class="headerlink" title="1. Git push与pull的默认行为"></a>1. Git push与pull的默认行为</h3><p> 一直以来对git push与git pull命令的默认行为感觉混乱，今天抽空总结下。</p>
 <p>git push 通常在一个本地新建分支。git checkout -b develop,在develop分支commit了代码之后。<br>如果直接执行git push命令，develop分支将不会被push到远程仓库（但此时git push操作有可能会推送一些代码到远程仓库，这取决于我们本地git config配置中的push.default默认行为，下文将会逐一详解）</p>
 <h6 id="因此我们至少需要显式指定将要推送的分支名，例如git-push-origin-develop，才能将本地新分支推送到远程仓库。"><a href="#因此我们至少需要显式指定将要推送的分支名，例如git-push-origin-develop，才能将本地新分支推送到远程仓库。" class="headerlink" title="因此我们至少需要显式指定将要推送的分支名，例如git push origin develop，才能将本地新分支推送到远程仓库。"></a>因此我们至少需要显式指定将要推送的分支名，例如git push origin develop，才能将本地新分支推送到远程仓库。</h6><p>当我们通过显式指定分支名进行初次push操作后，本地有了新的commit，此时执行git push命令会有什么效果呢？</p>
 <p>如果你未曾改动过git config中的push.default属性，根据我们使用的git不同版本（Git 2.0之前或之后），git push通常会有两种截然不同的行为:</p>
@@ -354,8 +353,7 @@ matching - push所有本地和远程两端都存在的同名分支。
 
 初次提交本地分支，例如git push origin develop操作，并不会定义当前本地分支的upstream分支，我们可以通过git push --set-upstream origin develop，关联本地develop分支的upstream分支，另一个更为简洁的方式是初次push时，加入-u参数，例如git push -u origin develop，这个操作在push的同时会指定当前分支的upstream。
 </code></pre><p>注意push.default = current可以在远程同名分支不存在的情况下自动创建同名分支，有些时候这也是个极其方便的模式，比如初次push你可以直接输入 git push 而不必显示指定远程分支。</p>
-<p>###2. git pull</p>
-<p>弄清楚git push的默认行为后，再来看看git pull。</p>
+<h3 id="2-git-pull"><a href="#2-git-pull" class="headerlink" title="2. git pull"></a>2. git pull</h3><p>弄清楚git push的默认行为后，再来看看git pull。</p>
 <p>当我们未指定当前分支的upstream时，通常git pull操作会得到如下的提示：</p>
 <pre><code>There is no tracking information for the current branch.  
 Please specify which branch you want to merge with.  
@@ -367,7 +365,8 @@ git pull &lt;remote&gt; &lt;branch&gt;
 </code></pre><p>git pull的默认行为和git push完全不同。当我们执行git pull的时候，实际上是做了git fetch + git merge操作，fetch操作将会更新本地仓库的remote tracking，也就是refs/remotes中的代码，并不会对refs/heads中本地当前的代码造成影响。</p>
 <p>当我们进行pull的第二个行为merge时，对git来说，如果我们没有设定当前分支的upstream，它并不知道我们要合并哪个分支到当前分支，所以我们需要通过下面的代码指定当前分支的upstream：</p>
 <pre><code>git branch --set-upstream-to=origin/&lt;branch&gt; develop  
-</code></pre><p>// 或者git push –set-upstream origin develop<br>实际上，如果我们没有指定upstream，git在merge时会访问git config中当前分支(develop)merge的默认配置，我们可以通过配置下面的内容指定某个分支的默认merge操作</p>
+// 或者git push --set-upstream origin develop 
+</code></pre><p>实际上，如果我们没有指定upstream，git在merge时会访问git config中当前分支(develop)merge的默认配置，我们可以通过配置下面的内容指定某个分支的默认merge操作</p>
 <pre><code>[branch &quot;develop&quot;]
     remote = origin
     merge = refs/heads/develop // [1]为什么不是refs/remotes/develop?
@@ -495,7 +494,7 @@ git pull &lt;remote&gt; &lt;branch&gt;
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -534,7 +533,7 @@ git pull &lt;remote&gt; &lt;branch&gt;
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#title-聊一聊git"><span class="nav-number">1.</span> <span class="nav-text">title: 聊一聊git</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Git-push与pull的默认行为"><span class="nav-number">1.1.</span> <span class="nav-text">1. Git push与pull的默认行为</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#因此我们至少需要显式指定将要推送的分支名，例如git-push-origin-develop，才能将本地新分支推送到远程仓库。"><span class="nav-number">1.1.0.0.1.</span> <span class="nav-text">因此我们至少需要显式指定将要推送的分支名，例如git push origin develop，才能将本地新分支推送到远程仓库。</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Git-push与pull的默认行为"><span class="nav-number">1.</span> <span class="nav-text">1. Git push与pull的默认行为</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#因此我们至少需要显式指定将要推送的分支名，例如git-push-origin-develop，才能将本地新分支推送到远程仓库。"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">因此我们至少需要显式指定将要推送的分支名，例如git push origin develop，才能将本地新分支推送到远程仓库。</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-git-pull"><span class="nav-number">2.</span> <span class="nav-text">2. git pull</span></a></li></ol></div>
             
 
           </div>
