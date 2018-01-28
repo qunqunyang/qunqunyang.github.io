@@ -62,11 +62,11 @@ menu:
 menu_icons:
   enable: true
   #KeyMapsToMenuItemKey: NameOfTheIconFromFontAwesome
-  home: home
-  about: user
+  首页: home
+  关于: user
   categories: th
   schedule: calendar
-  tags: tags
+  标签: tags
   archives: archive
   sitemap: sitemap
   commonweal: heartbeat
