@@ -3,8 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="c8f86646-e108-41aa-96e4-24d61b4b6559" name="Default" comment="">
       <change type="DELETED" beforePath="$PROJECT_DIR$/source/_posts/123.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/source/_posts/2017-07-13.md" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/source/_posts/git.md" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/source/_posts/git行为.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/source/_posts/测试.md" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -33,17 +36,7 @@
         <entry file="file://$PROJECT_DIR$/themes/next/languages/zh-Hans.yml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="171">
-              <caret line="9" column="10" lean-forward="true" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="10" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="2017-07-13.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/_posts/2017-07-13.md">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="58" column="29" lean-forward="false" selection-start-line="58" selection-start-column="29" selection-end-line="58" selection-end-column="29" />
+              <caret line="9" column="10" lean-forward="false" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -260,15 +253,15 @@
       <updated>1500176390438</updated>
       <workItem from="1500176391931" duration="3329000" />
       <workItem from="1513926941866" duration="731000" />
-      <workItem from="1517128457238" duration="347000" />
+      <workItem from="1517128457238" duration="789000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7283000" />
+    <option name="totallyTimeSpent" value="7725000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="1" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -566,7 +559,7 @@
     <entry file="file://$PROJECT_DIR$/themes/next/languages/zh-Hans.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
-          <caret line="9" column="10" lean-forward="true" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="10" />
+          <caret line="9" column="10" lean-forward="false" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="10" />
           <folding />
         </state>
       </provider>
