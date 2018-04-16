@@ -93,19 +93,19 @@
 
 
 
-<meta name="description" content="一、user-agent看一下Chrome的User-Agent这里可以看出来，该Chrome是MAC的发布版，采用了兼容了Mozilla，Safari，内核兼容AppleWebkit和Gecko
-User-Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chro">
+<meta name="description" content="1. 重绘 （Repaint）重绘是一个元素外观的改变所触发的浏览器行为，例如改变outline、背景色等属性。浏览器会根据元素的新属性重新绘制，使元素呈现新的外观。重绘不会带来重新布局，所以并不一定伴随重排。
+2.重排 (Reflow)渲染对象在创建完成并添加到渲染树时，并不包含位置和大小信息。计算这些值的过程称为布局和重排。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="flag">
-<meta property="og:url" content="http://qunqunyang.me/2017/12/26/http请求和响应/index.html">
+<meta property="og:title" content="页面的重绘和重排">
+<meta property="og:url" content="http://qunqunyang.me/2018/04/16/页面的重绘和重排/index.html">
 <meta property="og:site_name" content="yangqun">
-<meta property="og:description" content="一、user-agent看一下Chrome的User-Agent这里可以看出来，该Chrome是MAC的发布版，采用了兼容了Mozilla，Safari，内核兼容AppleWebkit和Gecko
-User-Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chro">
-<meta property="og:updated_time" content="2018-01-28T08:44:09.431Z">
+<meta property="og:description" content="1. 重绘 （Repaint）重绘是一个元素外观的改变所触发的浏览器行为，例如改变outline、背景色等属性。浏览器会根据元素的新属性重新绘制，使元素呈现新的外观。重绘不会带来重新布局，所以并不一定伴随重排。
+2.重排 (Reflow)渲染对象在创建完成并添加到渲染树时，并不包含位置和大小信息。计算这些值的过程称为布局和重排。">
+<meta property="og:updated_time" content="2018-04-16T11:31:44.426Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="flag">
-<meta name="twitter:description" content="一、user-agent看一下Chrome的User-Agent这里可以看出来，该Chrome是MAC的发布版，采用了兼容了Mozilla，Safari，内核兼容AppleWebkit和Gecko
-User-Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chro">
+<meta name="twitter:title" content="页面的重绘和重排">
+<meta name="twitter:description" content="1. 重绘 （Repaint）重绘是一个元素外观的改变所触发的浏览器行为，例如改变outline、背景色等属性。浏览器会根据元素的新属性重新绘制，使元素呈现新的外观。重绘不会带来重新布局，所以并不一定伴随重排。
+2.重排 (Reflow)渲染对象在创建完成并添加到渲染树时，并不包含位置和大小信息。计算这些值的过程称为布局和重排。">
 
 
 
@@ -133,13 +133,13 @@ User-Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KH
 
 
 
-  <link rel="canonical" href="http://qunqunyang.me/2017/12/26/http请求和响应/"/>
+  <link rel="canonical" href="http://qunqunyang.me/2018/04/16/页面的重绘和重排/"/>
 
 
 
 
 
-  <title>flag | yangqun</title>
+  <title>页面的重绘和重排 | yangqun</title>
   
 
 
@@ -268,7 +268,7 @@ User-Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KH
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://qunqunyang.me/2017/12/26/http请求和响应/">
+    <link itemprop="mainEntityOfPage" href="http://qunqunyang.me/2018/04/16/页面的重绘和重排/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="qunqunyang">
@@ -285,7 +285,7 @@ User-Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KH
 
         
         
-          <h1 class="post-title" itemprop="name headline">flag</h1>
+          <h1 class="post-title" itemprop="name headline">页面的重绘和重排</h1>
         
 
         <div class="post-meta">
@@ -297,8 +297,8 @@ User-Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KH
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-26T11:50:42+08:00">
-                2017-12-26
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-16T19:31:44+08:00">
+                2018-04-16
               </time>
             
 
@@ -332,36 +332,9 @@ User-Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KH
       
 
       
-        <h3 id="一、user-agent"><a href="#一、user-agent" class="headerlink" title="一、user-agent"></a>一、user-agent</h3><h3 id="看一下Chrome的User-Agent"><a href="#看一下Chrome的User-Agent" class="headerlink" title="看一下Chrome的User-Agent"></a>看一下Chrome的User-Agent</h3><h3 id="这里可以看出来，该Chrome是MAC的发布版，采用了兼容了Mozilla，Safari，内核兼容AppleWebkit和Gecko"><a href="#这里可以看出来，该Chrome是MAC的发布版，采用了兼容了Mozilla，Safari，内核兼容AppleWebkit和Gecko" class="headerlink" title="这里可以看出来，该Chrome是MAC的发布版，采用了兼容了Mozilla，Safari，内核兼容AppleWebkit和Gecko"></a>这里可以看出来，该Chrome是MAC的发布版，采用了兼容了Mozilla，Safari，内核兼容AppleWebkit和Gecko</h3><ul>
-<li>User-Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36</li>
-<li>看一下火狐的User-Agent<br>可以看出来，该Firefox为Windows平台的发布版，内核为Firefox的自家内核Gecko</li>
-<li>User-Agent:Mozilla/5.0 (Windows NT 6.1; WOW64; rv:30.0) Gecko/20100101 </li>
-<li>Firefox/30.0</li>
-<li>看一下Mac上的Safari</li>
-<li>看出来，兼容了Mozilla，为Mac系统的发布版，采用自家的Webkit内核(Apple)</li>
-<li>User-Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) </li>
-<li></li>
-<li><p>AppleWebKit/537.75.14 (KHTML, like Gecko) Version/7.0.3 Safari/537.75.14</p>
-</li>
-<li><p>最后是IE的User-Agent</p>
-<p>看出来，兼容了Mozilla，采用兼容模式的IE10，采用自家的Trident内核</p>
-</li>
-<li>User-Agent:Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Win64; x64; Trident/6.0)<ul>
-<li>模拟移动设备</li>
-</ul>
-</li>
-<li><p>我们这里可以模拟一个移动设备来查看一下，显示效果，模拟设备，Galaxy Note II ，通过该设备向服务端发送请求</p>
-</li>
-<li><p>请求标头，</p>
-</li>
-<li>User-Agent:Mozilla/5.0 (Linux; U; Android 4.1; en-us; GT-N7100 Build/JRO03C) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30</li>
-</ul>
-<p>二、host  主机域名，或ip地址</p>
-<p>三、accept</p>
-<p>四、refer</p>
-<p>五、gzip</p>
-<p>六、ttransfer-encoding</p>
-
+        <h3 id="1-重绘-（Repaint）"><a href="#1-重绘-（Repaint）" class="headerlink" title="1. 重绘 （Repaint）"></a>1. 重绘 （Repaint）</h3><p>重绘是一个元素外观的改变所触发的浏览器行为，例如改变outline、背景色等属性。浏览器会根据元素的新属性重新绘制，<br>使元素呈现新的外观。重绘不会带来重新布局，所以并不一定伴随重排。</p>
+<h3 id="2-重排-Reflow"><a href="#2-重排-Reflow" class="headerlink" title="2.重排 (Reflow)"></a>2.重排 (Reflow)</h3><pre><code>渲染对象在创建完成并添加到渲染树时，并不包含位置和大小信息。计算这些值的过程称为布局和重排。
+</code></pre>
       
     </div>
 
@@ -397,8 +370,8 @@ User-Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KH
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/12/26/多终端/" rel="next" title="text">
-                <i class="fa fa-chevron-left"></i> text
+              <a href="/2018/04/16/继承/" rel="next" title="Javascript 面向对象">
+                <i class="fa fa-chevron-left"></i> Javascript 面向对象
               </a>
             
           </div>
@@ -406,10 +379,6 @@ User-Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KH
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/12/26/css/" rel="prev" title="浏览器">
-                浏览器 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -521,7 +490,7 @@ User-Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KH
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、user-agent"><span class="nav-number">1.</span> <span class="nav-text">一、user-agent</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#看一下Chrome的User-Agent"><span class="nav-number">2.</span> <span class="nav-text">看一下Chrome的User-Agent</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#这里可以看出来，该Chrome是MAC的发布版，采用了兼容了Mozilla，Safari，内核兼容AppleWebkit和Gecko"><span class="nav-number">3.</span> <span class="nav-text">这里可以看出来，该Chrome是MAC的发布版，采用了兼容了Mozilla，Safari，内核兼容AppleWebkit和Gecko</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-重绘-（Repaint）"><span class="nav-number">1.</span> <span class="nav-text">1. 重绘 （Repaint）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-重排-Reflow"><span class="nav-number">2.</span> <span class="nav-text">2.重排 (Reflow)</span></a></li></ol></div>
             
 
           </div>
