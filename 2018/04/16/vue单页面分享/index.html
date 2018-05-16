@@ -93,15 +93,19 @@
 
 
 
-<meta name="description" content="过好每一天。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="yangqun">
-<meta property="og:url" content="http://qunqunyang.me/archives/2018/04/index.html">
+<meta name="description" content="vue hash模式微信分享时安卓可以正常分享，ios分享的页面始终是打开的第一个页面的问题。
+ 坑点1： 因为我的项目为单页式应用，并且采用了Vue中的hash模式，因此项目路径中带有#号的部分，微信可能会在其前面加一个？号（不知未来还会不会有变化）。这样当自己拼值时（如“？userId=123”）则需要取第二个问号后的值。之前无论如何都取不到自己拼在路径后的值，复制链接后才发现，微信默默地给">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue 单页面微信分享(hash模式)">
+<meta property="og:url" content="http://qunqunyang.me/2018/04/16/vue单页面分享/index.html">
 <meta property="og:site_name" content="yangqun">
-<meta property="og:description" content="过好每一天。">
+<meta property="og:description" content="vue hash模式微信分享时安卓可以正常分享，ios分享的页面始终是打开的第一个页面的问题。
+ 坑点1： 因为我的项目为单页式应用，并且采用了Vue中的hash模式，因此项目路径中带有#号的部分，微信可能会在其前面加一个？号（不知未来还会不会有变化）。这样当自己拼值时（如“？userId=123”）则需要取第二个问号后的值。之前无论如何都取不到自己拼在路径后的值，复制链接后才发现，微信默默地给">
+<meta property="og:updated_time" content="2018-04-16T11:30:51.643Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="yangqun">
-<meta name="twitter:description" content="过好每一天。">
+<meta name="twitter:title" content="vue 单页面微信分享(hash模式)">
+<meta name="twitter:description" content="vue hash模式微信分享时安卓可以正常分享，ios分享的页面始终是打开的第一个页面的问题。
+ 坑点1： 因为我的项目为单页式应用，并且采用了Vue中的hash模式，因此项目路径中带有#号的部分，微信可能会在其前面加一个？号（不知未来还会不会有变化）。这样当自己拼值时（如“？userId=123”）则需要取第二个问号后的值。之前无论如何都取不到自己拼在路径后的值，复制链接后才发现，微信默默地给">
 
 
 
@@ -129,13 +133,13 @@
 
 
 
-  <link rel="canonical" href="http://qunqunyang.me/archives/2018/04/"/>
+  <link rel="canonical" href="http://qunqunyang.me/2018/04/16/vue单页面分享/"/>
 
 
 
 
 
-  <title>归档 | yangqun</title>
+  <title>vue 单页面微信分享(hash模式) | yangqun</title>
   
 
 
@@ -160,7 +164,7 @@
     
   
 
-  <div class="container sidebar-position-left  page-archive  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -254,177 +258,160 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
-
-    <span class="archive-page-counter">
-      
-      
-      
-        
-      
-      嗯..! 目前共计 13 篇日志。 继续努力。
-    </span>
-
+  <div id="posts" class="posts-expand">
     
-
-      
-      
-      
-
-      
-        
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2018">2018</h2>
-        </div>
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/04/16/页面的重绘和重排/" itemprop="url">
-              
-                <span itemprop="name">页面的重绘和重排</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-04-16T19:31:44+08:00"
-              content="2018-04-16" >
-          04-16
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/04/16/继承/" itemprop="url">
-              
-                <span itemprop="name">Javascript 面向对象</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-04-16T19:31:44+08:00"
-              content="2018-04-16" >
-          04-16
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/04/16/webpack4.5+vue/" itemprop="url">
-              
-                <span itemprop="name">webpack4.5+vue 踩坑记录</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-04-16T19:31:44+08:00"
-              content="2018-04-16" >
-          04-16
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/04/16/es6和es7/" itemprop="url">
-              
-                <span itemprop="name">ES6和ES7</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-04-16T19:31:44+08:00"
-              content="2018-04-16" >
-          04-16
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-  </section>
 
   
 
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://qunqunyang.me/2018/04/16/vue单页面分享/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="qunqunyang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yangqun">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">vue 单页面微信分享(hash模式)</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-16T19:30:51+08:00">
+                2018-04-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p> vue hash模式微信分享时安卓可以正常分享，ios分享的页面始终是打开的第一个页面的问题。</p>
+<p> 坑点1： 因为我的项目为单页式应用，并且采用了Vue中的hash模式，因此项目路径中带有#号的部分，微信可能会在其前面加一个？号（不知未来还会不会有变化）。这样当自己拼值时（如“？userId=123”）则需要取第二个问号后的值。之前无论如何都取不到自己拼在路径后的值，复制链接后才发现，微信默默地给加了一个问号和其他参数在其中。</p>
+<p> 坑点2： 如果在公众号中浏览一个页面，直接都是由路由跳转的。但浏览者从分享窗口进入后，再去浏览别的页面 在别的页面按照正常路由跳转到其他页面去分享时 始终是首次进入的页面。</p>
+<h4 id="以下有两种方法"><a href="#以下有两种方法" class="headerlink" title="以下有两种方法"></a>以下有两种方法</h4><pre><code>1： 使用微信自定义分享
+    分享链接 通过获取url赋值
+
+
+2： vue单页面跳转的时候
+
+    1） this.$router.push({ name: &apos;home&apos;, params: { userId: wise }})
+
+    2） let url = `#/report/BWDaily?hash=${hash}&amp;lang=${this.lang}&amp;type=${this.type}`;
+    window.location.href= url;
+</code></pre><p>第一种方法： 实践不可用</p>
+<p>第二种方法： 实践可用。目前还没找到其根本原理。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/01/28/鱼丁系/" rel="next" title="过去的贰零壹柒年（魚丁系）">
+                <i class="fa fa-chevron-left"></i> 过去的贰零壹柒年（魚丁系）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/04/16/es6和es7/" rel="prev" title="ES6和ES7">
+                ES6和ES7 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -432,6 +419,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -452,8 +443,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -468,7 +468,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -497,6 +497,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#以下有两种方法"><span class="nav-number">1.</span> <span class="nav-text">以下有两种方法</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -610,11 +626,9 @@
   
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
 
 
   
