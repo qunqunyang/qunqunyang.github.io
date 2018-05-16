@@ -93,19 +93,52 @@
 
 
 
-<meta name="description" content="1. 最新版本的webpack配置项： 最近在搭建新的框架，以前的项目webpack版本太低了，就准备升级一下。这一升级不得了，遇到了好多问题。
-2.vue目录项">
+<meta name="description" content="1、 写法：箭头函数：
+var a = &amp;gt;{
+        console.log(b)
+    }
+
+普通函数：
+    function a(){
+        console.log(b)
+    }
+2. 箭头函数不能作为构造函数var a =() =&amp;gt;{
+    console.log(b);
+ }
+ var b = new a(); //TypeError  a is">
 <meta property="og:type" content="article">
-<meta property="og:title" content="webpack4.5+vue 踩坑记录">
-<meta property="og:url" content="http://qunqunyang.me/2018/04/16/webpack4.5+vue/index.html">
+<meta property="og:title" content="es6箭头函数和普通函数的区别">
+<meta property="og:url" content="http://qunqunyang.me/2018/05/16/es6箭头函数和普通函数的区别/index.html">
 <meta property="og:site_name" content="yangqun">
-<meta property="og:description" content="1. 最新版本的webpack配置项： 最近在搭建新的框架，以前的项目webpack版本太低了，就准备升级一下。这一升级不得了，遇到了好多问题。
-2.vue目录项">
-<meta property="og:updated_time" content="2018-04-16T11:31:44.424Z">
+<meta property="og:description" content="1、 写法：箭头函数：
+var a = &amp;gt;{
+        console.log(b)
+    }
+
+普通函数：
+    function a(){
+        console.log(b)
+    }
+2. 箭头函数不能作为构造函数var a =() =&amp;gt;{
+    console.log(b);
+ }
+ var b = new a(); //TypeError  a is">
+<meta property="og:updated_time" content="2018-05-16T07:32:00.790Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="webpack4.5+vue 踩坑记录">
-<meta name="twitter:description" content="1. 最新版本的webpack配置项： 最近在搭建新的框架，以前的项目webpack版本太低了，就准备升级一下。这一升级不得了，遇到了好多问题。
-2.vue目录项">
+<meta name="twitter:title" content="es6箭头函数和普通函数的区别">
+<meta name="twitter:description" content="1、 写法：箭头函数：
+var a = &amp;gt;{
+        console.log(b)
+    }
+
+普通函数：
+    function a(){
+        console.log(b)
+    }
+2. 箭头函数不能作为构造函数var a =() =&amp;gt;{
+    console.log(b);
+ }
+ var b = new a(); //TypeError  a is">
 
 
 
@@ -133,13 +166,13 @@
 
 
 
-  <link rel="canonical" href="http://qunqunyang.me/2018/04/16/webpack4.5+vue/"/>
+  <link rel="canonical" href="http://qunqunyang.me/2018/05/16/es6箭头函数和普通函数的区别/"/>
 
 
 
 
 
-  <title>webpack4.5+vue 踩坑记录 | yangqun</title>
+  <title>es6箭头函数和普通函数的区别 | yangqun</title>
   
 
 
@@ -268,7 +301,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://qunqunyang.me/2018/04/16/webpack4.5+vue/">
+    <link itemprop="mainEntityOfPage" href="http://qunqunyang.me/2018/05/16/es6箭头函数和普通函数的区别/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="qunqunyang">
@@ -285,7 +318,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">webpack4.5+vue 踩坑记录</h1>
+          <h1 class="post-title" itemprop="name headline">es6箭头函数和普通函数的区别</h1>
         
 
         <div class="post-meta">
@@ -297,8 +330,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-16T19:31:44+08:00">
-                2018-04-16
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-16T15:32:00+08:00">
+                2018-05-16
               </time>
             
 
@@ -332,8 +365,79 @@
       
 
       
-        <h3 id="1-最新版本的webpack"><a href="#1-最新版本的webpack" class="headerlink" title="1. 最新版本的webpack"></a>1. 最新版本的webpack</h3><pre><code>配置项： 最近在搭建新的框架，以前的项目webpack版本太低了，就准备升级一下。这一升级不得了，遇到了好多问题。
-</code></pre><h3 id="2-vue"><a href="#2-vue" class="headerlink" title="2.vue"></a>2.vue</h3><pre><code>目录项    
+        <h3 id="1、-写法："><a href="#1、-写法：" class="headerlink" title="1、 写法："></a>1、 写法：</h3><pre><code>箭头函数：
+var a = &gt;{
+        console.log(b)
+    }
+
+普通函数：
+    function a(){
+        console.log(b)
+    }
+</code></pre><h3 id="2-箭头函数不能作为构造函数"><a href="#2-箭头函数不能作为构造函数" class="headerlink" title="2. 箭头函数不能作为构造函数"></a>2. 箭头函数不能作为构造函数</h3><pre><code>var a =() =&gt;{
+    console.log(b);
+ }
+ var b = new a(); //TypeError  a is not a constructor
+</code></pre><h3 id="3-箭头函数不绑定arguments-取而代之用rest参数…解决。"><a href="#3-箭头函数不绑定arguments-取而代之用rest参数…解决。" class="headerlink" title="3.箭头函数不绑定arguments,取而代之用rest参数…解决。"></a>3.箭头函数不绑定arguments,取而代之用rest参数…解决。</h3><pre><code>function A(a){
+    console.log(arguments)
+}
+
+var B = (b) =&gt;{
+    console.log(arguments);  
+}
+
+var C = (...c) =&gt;{
+    console.log(c)
+}
+
+A(1);
+B(2);  //arguments is not defined
+C(3);
+</code></pre><h3 id="4-箭头函数会捕获其所在上下文的this值，作为自己的this值。"><a href="#4-箭头函数会捕获其所在上下文的this值，作为自己的this值。" class="headerlink" title="4.箭头函数会捕获其所在上下文的this值，作为自己的this值。"></a>4.箭头函数会捕获其所在上下文的this值，作为自己的this值。</h3><pre><code>var Obj = {
+    a: 10,
+    b: function(){
+        console.log(this.a);
+    },
+    c: function(){
+        return ()=&gt;{
+            console.log(this.a);
+        }
+    }
+
+}
+Obj.b();
+Obj.c()();
+</code></pre><h3 id="5-使用call-和-apply-调用；"><a href="#5-使用call-和-apply-调用；" class="headerlink" title="5.使用call() 和 apply()调用；"></a>5.使用call() 和 apply()调用；</h3><pre><code>通过call()和apply()方法调用一个函数时。只是传入了参数而已，对this并没有什么影响。
+var Obj = {
+    a: 10,
+    b: function(n){
+        var f = (v) =&gt; v+this.a
+        return f(n)
+    },
+    c: function(n){
+        var f = (v) =&gt; v+this.a
+        var m = {a:20};
+        return f.call(m,n)
+    }
+}
+
+console.log(Obj.b(1)); //11
+console.log(Obj.c(1)); //11
+</code></pre><h3 id="6-箭头函数没有原型属性。"><a href="#6-箭头函数没有原型属性。" class="headerlink" title="6.箭头函数没有原型属性。"></a>6.箭头函数没有原型属性。</h3><pre><code>var a =() =&gt;{
+    return 1;
+}
+
+function b(){
+    return 2;
+}
+
+console.log(a.prototype); //undefined
+console.log(b.prototype); // object{...}
+</code></pre><h3 id="7-箭头函数不能换行"><a href="#7-箭头函数不能换行" class="headerlink" title="7.箭头函数不能换行"></a>7.箭头函数不能换行</h3><pre><code>var a = () =&gt;
+{
+}
+</code></pre><h2 id="函数的this指向问题："><a href="#函数的this指向问题：" class="headerlink" title="函数的this指向问题："></a>函数的this指向问题：</h2><pre><code>箭头函数的this永远指向其上下文的 this，任何方法都改变不了其指向，如call(), bind(), apply()
+普通函数的this指向调用它的那个对象
 </code></pre>
       
     </div>
@@ -370,8 +474,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/04/16/es6和es7/" rel="next" title="ES6和ES7">
-                <i class="fa fa-chevron-left"></i> ES6和ES7
+              <a href="/2018/04/16/页面的重绘和重排/" rel="next" title="页面的重绘和重排">
+                <i class="fa fa-chevron-left"></i> 页面的重绘和重排
               </a>
             
           </div>
@@ -380,8 +484,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/04/16/继承/" rel="prev" title="Javascript 面向对象">
-                Javascript 面向对象 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/05/16/vue单页面分享/" rel="prev" title="vue 单页面微信分享(hash模式)">
+                vue 单页面微信分享(hash模式) <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -494,7 +598,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-最新版本的webpack"><span class="nav-number">1.</span> <span class="nav-text">1. 最新版本的webpack</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-vue"><span class="nav-number">2.</span> <span class="nav-text">2.vue</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、-写法："><span class="nav-number">1.</span> <span class="nav-text">1、 写法：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-箭头函数不能作为构造函数"><span class="nav-number">2.</span> <span class="nav-text">2. 箭头函数不能作为构造函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-箭头函数不绑定arguments-取而代之用rest参数…解决。"><span class="nav-number">3.</span> <span class="nav-text">3.箭头函数不绑定arguments,取而代之用rest参数…解决。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-箭头函数会捕获其所在上下文的this值，作为自己的this值。"><span class="nav-number">4.</span> <span class="nav-text">4.箭头函数会捕获其所在上下文的this值，作为自己的this值。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-使用call-和-apply-调用；"><span class="nav-number">5.</span> <span class="nav-text">5.使用call() 和 apply()调用；</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-箭头函数没有原型属性。"><span class="nav-number">6.</span> <span class="nav-text">6.箭头函数没有原型属性。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-箭头函数不能换行"><span class="nav-number">7.</span> <span class="nav-text">7.箭头函数不能换行</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数的this指向问题："><span class="nav-number"></span> <span class="nav-text">函数的this指向问题：</span></a></div>
             
 
           </div>
