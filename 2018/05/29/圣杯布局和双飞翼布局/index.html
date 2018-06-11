@@ -93,52 +93,16 @@
 
 
 
-<meta name="description" content="1、 写法：箭头函数：
-var a = &amp;gt;{
-        console.log(b)
-    }
-
-普通函数：
-    function a(){
-        console.log(b)
-    }
-2. 箭头函数不能作为构造函数var a =() =&amp;gt;{
-    console.log(b);
- }
- var b = new a(); //TypeError  a is">
+<meta name="description" content="背景：1、 圣杯布局：2、 双飞翼布局待更新！！！">
 <meta property="og:type" content="article">
-<meta property="og:title" content="es6箭头函数和普通函数的区别">
+<meta property="og:title" content="css 圣杯布局和双飞翼布局">
 <meta property="og:url" content="http://qunqunyang.me/2018/05/29/圣杯布局和双飞翼布局/index.html">
 <meta property="og:site_name" content="yangqun">
-<meta property="og:description" content="1、 写法：箭头函数：
-var a = &amp;gt;{
-        console.log(b)
-    }
-
-普通函数：
-    function a(){
-        console.log(b)
-    }
-2. 箭头函数不能作为构造函数var a =() =&amp;gt;{
-    console.log(b);
- }
- var b = new a(); //TypeError  a is">
-<meta property="og:updated_time" content="2018-06-11T10:02:18.316Z">
+<meta property="og:description" content="背景：1、 圣杯布局：2、 双飞翼布局待更新！！！">
+<meta property="og:updated_time" content="2018-06-11T10:08:59.813Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="es6箭头函数和普通函数的区别">
-<meta name="twitter:description" content="1、 写法：箭头函数：
-var a = &amp;gt;{
-        console.log(b)
-    }
-
-普通函数：
-    function a(){
-        console.log(b)
-    }
-2. 箭头函数不能作为构造函数var a =() =&amp;gt;{
-    console.log(b);
- }
- var b = new a(); //TypeError  a is">
+<meta name="twitter:title" content="css 圣杯布局和双飞翼布局">
+<meta name="twitter:description" content="背景：1、 圣杯布局：2、 双飞翼布局待更新！！！">
 
 
 
@@ -172,7 +136,7 @@ var a = &amp;gt;{
 
 
 
-  <title>es6箭头函数和普通函数的区别 | yangqun</title>
+  <title>css 圣杯布局和双飞翼布局 | yangqun</title>
   
 
 
@@ -318,7 +282,7 @@ var a = &amp;gt;{
 
         
         
-          <h1 class="post-title" itemprop="name headline">es6箭头函数和普通函数的区别</h1>
+          <h1 class="post-title" itemprop="name headline">css 圣杯布局和双飞翼布局</h1>
         
 
         <div class="post-meta">
@@ -365,80 +329,8 @@ var a = &amp;gt;{
       
 
       
-        <h3 id="1、-写法："><a href="#1、-写法：" class="headerlink" title="1、 写法："></a>1、 写法：</h3><pre><code>箭头函数：
-var a = &gt;{
-        console.log(b)
-    }
+        <h3 id="背景："><a href="#背景：" class="headerlink" title="背景："></a>背景：</h3><h3 id="1、-圣杯布局："><a href="#1、-圣杯布局：" class="headerlink" title="1、 圣杯布局："></a>1、 圣杯布局：</h3><h3 id="2、-双飞翼布局"><a href="#2、-双飞翼布局" class="headerlink" title="2、 双飞翼布局"></a>2、 双飞翼布局</h3><p>待更新！！！</p>
 
-普通函数：
-    function a(){
-        console.log(b)
-    }
-</code></pre><h3 id="2-箭头函数不能作为构造函数"><a href="#2-箭头函数不能作为构造函数" class="headerlink" title="2. 箭头函数不能作为构造函数"></a>2. 箭头函数不能作为构造函数</h3><pre><code>var a =() =&gt;{
-    console.log(b);
- }
- var b = new a(); //TypeError  a is not a constructor
-</code></pre><h3 id="3-箭头函数不绑定arguments-取而代之用rest参数…解决。"><a href="#3-箭头函数不绑定arguments-取而代之用rest参数…解决。" class="headerlink" title="3.箭头函数不绑定arguments,取而代之用rest参数…解决。"></a>3.箭头函数不绑定arguments,取而代之用rest参数…解决。</h3><pre><code>function A(a){
-    console.log(arguments)
-}
-
-var B = (b) =&gt;{
-    console.log(arguments);  
-}
-
-var C = (...c) =&gt;{
-    console.log(c)
-}
-
-A(1);
-B(2);  //arguments is not defined
-C(3);
-</code></pre><h3 id="4-箭头函数会捕获其所在上下文的this值，作为自己的this值。"><a href="#4-箭头函数会捕获其所在上下文的this值，作为自己的this值。" class="headerlink" title="4.箭头函数会捕获其所在上下文的this值，作为自己的this值。"></a>4.箭头函数会捕获其所在上下文的this值，作为自己的this值。</h3><pre><code>var Obj = {
-    a: 10,
-    b: function(){
-        console.log(this.a);
-    },
-    c: function(){
-        return ()=&gt;{
-            console.log(this.a);
-        }
-    }
-
-}
-Obj.b();
-Obj.c()();
-</code></pre><h3 id="5-使用call-和-apply-调用；"><a href="#5-使用call-和-apply-调用；" class="headerlink" title="5.使用call() 和 apply()调用；"></a>5.使用call() 和 apply()调用；</h3><pre><code>通过call()和apply()方法调用一个函数时。只是传入了参数而已，对this并没有什么影响。
-var Obj = {
-    a: 10,
-    b: function(n){
-        var f = (v) =&gt; v+this.a
-        return f(n)
-    },
-    c: function(n){
-        var f = (v) =&gt; v+this.a
-        var m = {a:20};
-        return f.call(m,n)
-    }
-}
-
-console.log(Obj.b(1)); //11
-console.log(Obj.c(1)); //11
-</code></pre><h3 id="6-箭头函数没有原型属性。"><a href="#6-箭头函数没有原型属性。" class="headerlink" title="6.箭头函数没有原型属性。"></a>6.箭头函数没有原型属性。</h3><pre><code>var a =() =&gt;{
-    return 1;
-}
-
-function b(){
-    return 2;
-}
-
-console.log(a.prototype); //undefined
-console.log(b.prototype); // object{...}
-</code></pre><h3 id="7-箭头函数不能换行"><a href="#7-箭头函数不能换行" class="headerlink" title="7.箭头函数不能换行"></a>7.箭头函数不能换行</h3><pre><code>var a = () =&gt;
-{
-}
-</code></pre><h2 id="函数的this指向问题："><a href="#函数的this指向问题：" class="headerlink" title="函数的this指向问题："></a>函数的this指向问题：</h2><pre><code>箭头函数的this永远指向其上下文的 this，任何方法都改变不了其指向，如call(), bind(), apply()
-普通函数的this指向调用它的那个对象
-</code></pre>
       
     </div>
 
@@ -598,7 +490,7 @@ console.log(b.prototype); // object{...}
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、-写法："><span class="nav-number">1.</span> <span class="nav-text">1、 写法：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-箭头函数不能作为构造函数"><span class="nav-number">2.</span> <span class="nav-text">2. 箭头函数不能作为构造函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-箭头函数不绑定arguments-取而代之用rest参数…解决。"><span class="nav-number">3.</span> <span class="nav-text">3.箭头函数不绑定arguments,取而代之用rest参数…解决。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-箭头函数会捕获其所在上下文的this值，作为自己的this值。"><span class="nav-number">4.</span> <span class="nav-text">4.箭头函数会捕获其所在上下文的this值，作为自己的this值。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-使用call-和-apply-调用；"><span class="nav-number">5.</span> <span class="nav-text">5.使用call() 和 apply()调用；</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-箭头函数没有原型属性。"><span class="nav-number">6.</span> <span class="nav-text">6.箭头函数没有原型属性。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-箭头函数不能换行"><span class="nav-number">7.</span> <span class="nav-text">7.箭头函数不能换行</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数的this指向问题："><span class="nav-number"></span> <span class="nav-text">函数的this指向问题：</span></a></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#背景："><span class="nav-number">1.</span> <span class="nav-text">背景：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1、-圣杯布局："><span class="nav-number">2.</span> <span class="nav-text">1、 圣杯布局：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、-双飞翼布局"><span class="nav-number">3.</span> <span class="nav-text">2、 双飞翼布局</span></a></li></ol></div>
             
 
           </div>
