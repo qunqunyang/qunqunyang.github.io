@@ -29,7 +29,7 @@ typeof 一般只能返回以下几种类型：Number,String,Boolean,Function, Ob
 
 此时就需要用到instanceof 来判断。
 
-### typeof的原理：
+#### typeof的原理：
 我们可以想想js在底层是怎么存储数据的类型信息呢。js的变量的底层实现。
 
 其实：js在底层存储变量的时候。会在变量的机器码的低位1-3位存储其类型信息。
@@ -59,13 +59,13 @@ typeof 一般只能返回以下几种类型：Number,String,Boolean,Function, Ob
 
 
 
-### instanceof的原理 
+#### instanceof的原理 
 
 下面介绍 instanceof  
 instanceof 主要是判断一个实例是否属于某种类型。
 
 1.
-
+	
 	let person  = function(){}
 	let nichol = new person();
 	nichol instanceof person  //true
@@ -120,71 +120,71 @@ instanceof的实现原理大致就是只要右侧变量的prototype在左侧变�
 
 根据图上的原理，我们来梳理上面提到的几个有趣的 instanceof 使用的例子。
 
-1. object instanceof object 
+1. object instanceof object
 
-由图可知，Object的prototype属性是Object.prototype,而由于Object本身是一个函数，由function所创建。
+ 	由图可知，Object的prototype属性是Object.prototype,而由于Object本身是一个函数，由function所创建。
 
-所有Object._proto_的值是Function.prototype,而Function.prototype的_proto_属性是Object.prorotype，
+ 	所有Object._proto_的值是Function.prototype,而Function.prototype的_proto_属性是Object.prorotype，
 
-所有可能判断出 object instanceof object 的结果是true.
+ 	所有可能判断出 object instanceof object 的结果是true.
 
-	leftValue = Object._proto_ = Function.prototype;
-	
-	rightValue = Object.prototype
-	
-	//第一次判断
-	
-	leftValue != rightValue
-	
-	leftValue = Function.prototype._proto_ = Object._prototype
-	
-	//第二次判断
-	
-	leftValue = rightValue
+		leftValue = Object._proto_ = Function.prototype;
+		
+		rightValue = Object.prototype
+		
+		//第一次判断
+		
+		leftValue != rightValue
+		
+		leftValue = Function.prototype._proto_ = Object._prototype
+		
+		//第二次判断
+		
+		leftValue = rightValue
 
 Function instanceof Function和 Function instanceof Object的运行过程与Object instanceof Object类似。故不再详说
 
 2. Foo instanceof Foo
-3. 
-Foo函数的prototype 属性是Foo.prototype, 而foo的_proto_属性是Function.prototype,
 
-由图可知，Foo的原型链上并没有Foo.prototype,因此Foo instanceof Foo也就返回false;
+	Foo函数的prototype 属性是Foo.prototype, 而foo的_proto_属性是Function.prototype,
 
-我们用代码简单的表示一下：
+	由图可知，Foo的原型链上并没有Foo.prototype,因此Foo instanceof Foo也就返回false;
 
-	leftValue = Foo, rightValue = Foo;
-	leftValue = Foo._proto = function.prototype;
-	rightValue = Foo.prototype;
-	//第一次判断
-	leftValue != rightValue;
-	leftValue = Function.prototype._proto_ = Object.prototype
-	//第二次判断
-	leftValue != rightValue;
-	leftValue = Object.prototype　＝null
-	//第三次判断
-	leftValue = null;
+	我们用代码简单的表示一下：
 
-Foo instanceof Object
+		leftValue = Foo, rightValue = Foo;
+		leftValue = Foo._proto = function.prototype;
+		rightValue = Foo.prototype;
+		//第一次判断
+		leftValue != rightValue;
+		leftValue = Function.prototype._proto_ = Object.prototype
+		//第二次判断
+		leftValue != rightValue;
+		leftValue = Object.prototype　＝null
+		//第三次判断
+		leftValue = null;
 
-	leftValue = Foo, rightValue = Object
-	leftValue = Foo.__proto__ = Function.prototype
-	rightValue = Object.prototype
-	// 第一次判断
-	leftValue != rightValue
-	leftValue = Function.prototype.__proto__ = Object.prototype
-	// 第二次判断
-	leftValue === rightValue
-	// 返回 true
+3. Foo instanceof Object
 
-Foo instanceof Function
+		leftValue = Foo, rightValue = Object
 
+		leftValue = Foo.__proto__ = Function.prototype
+		rightValue = Object.prototype
+		// 第一次判断
+		leftValue != rightValue
+		leftValue = Function.prototype.__proto__ = Object.prototype
+		// 第二次判断
+		leftValue === rightValue
+		// 返回 true
 
-	leftValue = Foo, rightValue = Function
-	leftValue = Foo.__proto__ = Function.prototype
-	rightValue = Function.prototype
-	// 第一次判断
-	leftValue === rightValue
-	// 返回 true
+4. Foo instanceof Function
+
+		leftValue = Foo, rightValue = Function
+		leftValue = Foo.__proto__ = Function.prototype
+		rightValue = Function.prototype
+		// 第一次判断
+		leftValue === rightValue
+		// 返回 true
 
 
 总结来说：
