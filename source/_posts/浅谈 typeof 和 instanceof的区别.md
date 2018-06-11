@@ -2,13 +2,15 @@
 title: 浅谈typeof 和instanceof的区别
 ---
 
-###  先介绍下js的基本类型和引用类型
+####  先介绍下js的基本类型和引用类型
 基本类型： Null,Undefined,Boolean ,Number和String
 
 引用类型：  Object、Array、RegExp、Date、Function
 		
 
-##### typeof和instanceof  都是用来判断一个变量是什么类型的。
+#### typeof和instanceof
+  
+相同点： 都是用来判断一个变量是什么类型的。
 
 区别：
 typeof是一元运算放在一个运算数之前可以是任意类型。
@@ -27,7 +29,7 @@ typeof 一般只能返回以下几种类型：Number,String,Boolean,Function, Ob
 
 此时就需要用到instanceof 来判断。
 
-#### typeof的原理：
+### typeof的原理：
 我们可以想想js在底层是怎么存储数据的类型信息呢。js的变量的底层实现。
 
 其实：js在底层存储变量的时候。会在变量的机器码的低位1-3位存储其类型信息。
@@ -57,7 +59,7 @@ typeof 一般只能返回以下几种类型：Number,String,Boolean,Function, Ob
 
 
 
-##### instanceof的原理 
+### instanceof的原理 
 
 下面介绍 instanceof  
 instanceof 主要是判断一个实例是否属于某种类型。
