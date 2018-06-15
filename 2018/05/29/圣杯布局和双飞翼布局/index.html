@@ -93,16 +93,34 @@
 
 
 
-<meta name="description" content="背景：1、 圣杯布局：2、 双飞翼布局待更新！！！">
+<meta name="description" content="背景：按我的理解，其实双飞翼布局和圣杯布局的实现，目的都是左右两栏固定宽度，中间部分自适应、
+但是实现起来还是有区别的。
+1、 圣杯布局：圣杯布局是讨论「三栏液态布局」的实现，它最早出自于谁或许不得而查了
+所谓液态布局是相对固态布局而言的，固态布局就是固定值不变的布局，液态就好比在容器里到了一杯水，
+它可以随着容器宽度的变化而自适应宽度。
+在这里，实现了左(100px) 右(100px) 宽度固定">
 <meta property="og:type" content="article">
 <meta property="og:title" content="css 圣杯布局和双飞翼布局">
 <meta property="og:url" content="http://qunqunyang.me/2018/05/29/圣杯布局和双飞翼布局/index.html">
 <meta property="og:site_name" content="yangqun">
-<meta property="og:description" content="背景：1、 圣杯布局：2、 双飞翼布局待更新！！！">
-<meta property="og:updated_time" content="2018-06-11T10:14:50.086Z">
+<meta property="og:description" content="背景：按我的理解，其实双飞翼布局和圣杯布局的实现，目的都是左右两栏固定宽度，中间部分自适应、
+但是实现起来还是有区别的。
+1、 圣杯布局：圣杯布局是讨论「三栏液态布局」的实现，它最早出自于谁或许不得而查了
+所谓液态布局是相对固态布局而言的，固态布局就是固定值不变的布局，液态就好比在容器里到了一杯水，
+它可以随着容器宽度的变化而自适应宽度。
+在这里，实现了左(100px) 右(100px) 宽度固定">
+<meta property="og:image" content="https://i.imgur.com/CzxbHrr.png">
+<meta property="og:image" content="https://i.imgur.com/KCw8DEO.png">
+<meta property="og:updated_time" content="2018-06-15T10:17:28.788Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="css 圣杯布局和双飞翼布局">
-<meta name="twitter:description" content="背景：1、 圣杯布局：2、 双飞翼布局待更新！！！">
+<meta name="twitter:description" content="背景：按我的理解，其实双飞翼布局和圣杯布局的实现，目的都是左右两栏固定宽度，中间部分自适应、
+但是实现起来还是有区别的。
+1、 圣杯布局：圣杯布局是讨论「三栏液态布局」的实现，它最早出自于谁或许不得而查了
+所谓液态布局是相对固态布局而言的，固态布局就是固定值不变的布局，液态就好比在容器里到了一杯水，
+它可以随着容器宽度的变化而自适应宽度。
+在这里，实现了左(100px) 右(100px) 宽度固定">
+<meta name="twitter:image" content="https://i.imgur.com/CzxbHrr.png">
 
 
 
@@ -329,8 +347,132 @@
       
 
       
-        <h3 id="背景："><a href="#背景：" class="headerlink" title="背景："></a>背景：</h3><h3 id="1、-圣杯布局："><a href="#1、-圣杯布局：" class="headerlink" title="1、 圣杯布局："></a>1、 圣杯布局：</h3><h3 id="2、-双飞翼布局"><a href="#2、-双飞翼布局" class="headerlink" title="2、 双飞翼布局"></a>2、 双飞翼布局</h3><p>待更新！！！</p>
+        <h3 id="背景："><a href="#背景：" class="headerlink" title="背景："></a>背景：</h3><pre><code>按我的理解，其实双飞翼布局和圣杯布局的实现，目的都是左右两栏固定宽度，中间部分自适应、
+但是实现起来还是有区别的。
+</code></pre><h3 id="1、-圣杯布局："><a href="#1、-圣杯布局：" class="headerlink" title="1、 圣杯布局："></a>1、 圣杯布局：</h3><pre><code>圣杯布局是讨论「三栏液态布局」的实现，它最早出自于谁或许不得而查了
+所谓液态布局是相对固态布局而言的，固态布局就是固定值不变的布局，液态就好比在容器里到了一杯水，
+它可以随着容器宽度的变化而自适应宽度。
+</code></pre><p>在这里，实现了左(100px) 右(100px) 宽度固定，中间自适应，container部分高度保持一致<br>    <img src="https://i.imgur.com/CzxbHrr.png" alt=""></p>
+<p>解释：<br>    html代码中，container包括三部分内容，首先放置middle 然后是left和right()</p>
+<ol>
+<li>顺序需要从middle到left ,right顺序固定，三者都需要float:left,（再加上position:relative相对布局后面会用到）</li>
+<li>middle需要设置宽度100%，占满</li>
+<li>此时middle占满了，要把left拉到最左边。margin-left: -100%;</li>
+<li>这个时候left过来了，但是会占用middle的内容，此时把container设置内边距 padding: 0 100px 0 100px;</li>
+<li>middle内容过来了，left也拉过来了，所以要还原，left要使用相对定位，left： -100px;同理right也要相对定位还原right: -100px;</li>
+<li>到这里大致就好了。 剩余就是高度的问题了。可以加上min-height使用。 </li>
+</ol>
+<p>好了，这里上代码：</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;css3&lt;/title&gt;
+&lt;/head&gt;
+&lt;style&gt;
 
+.container1 {
+    padding: 0 100px 0 100px;
+    min-height: 130px;
+}
+.middle {
+    float: left;
+    width: 100%;
+    background: #f00;
+    min-height: 130px;
+}
+.left {
+    float: left;
+    position: relative;
+    left: -100px;
+    background: #ccc;
+    width: 100px;
+    margin-left: -100%;
+    min-height: 130px;
+}
+.right {
+    float: left;
+    position: relative;
+    background: #588;
+    width: 100px;
+    margin-left: -100px;
+    right: -100px;
+    min-height: 130px;
+}
+&lt;/style&gt;
+&lt;body&gt;
+&lt;div class=&quot;layout1&quot;&gt;
+    &lt;div class=&quot;main&quot;&gt;main&lt;/div&gt;
+    &lt;div class=&quot;left&quot;&gt;left&lt;/div&gt;
+    &lt;div class=&quot;right&quot;&gt;right&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><h3 id="2、-双飞翼布局"><a href="#2、-双飞翼布局" class="headerlink" title="2、 双飞翼布局"></a>2、 双飞翼布局</h3><pre><code>如果把三栏布局比作一只大鸟，可以把main看成是鸟的身体，sub和extra则是鸟的翅膀。这个布局的实现思路是，
+先把最重要的身体部分放好，然后再将翅膀移动到适当的地方.
+
+其实跟上边的圣杯布局差不多的，当然也可以改动一下（自己想想有哪些不同吧）
+恩，这里有一只鸟~
+
+左翅sub有200px,右翅extra..220px.. 身体main自适应未知
+</code></pre><p><img src="https://i.imgur.com/KCw8DEO.png" alt=""></p>
+<p>1.html代码中，main要放最前边，sub  extra</p>
+<p>2.将main  sub  extra 都float:left</p>
+<p>3.将main占满 width:100%</p>
+<p>4.此时main占满了，所以要把sub拉到最左边，使用margin-left:-100%  同理 extra使用margin-left:-220px</p>
+<p>（这时可以直接继续上边圣杯布局的步骤，也可以有所改动）</p>
+<p>5.main内容被覆盖了吧，除了使用外围的padding，还可以考虑使用margin。</p>
+<p>给main增加一个内层div– main-inner, 然后margin:0 220px 0 200px</p>
+<p>6.main正确展示</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;css3&lt;/title&gt;
+&lt;/head&gt;
+&lt;style&gt;
+
+.container2 {
+    /*padding: 0 100px 0 100px;*/
+}
+.main {
+    float: left;
+    width: 100%;
+    min-height: 130px;
+}
+.main-middle {
+    margin: 0 100px 0 100px;
+    background: #f00;
+}
+.left {
+    float: left;
+    background: #ccc;
+    width: 100px;
+    margin-left: -100%;
+    min-height: 130px;
+}
+.right {
+    float: left;
+    background: #588;
+    width: 100px;
+    margin-left: -100px;
+    min-height: 130px;
+}
+&lt;/style&gt;
+&lt;body&gt;
+&lt;div class=&quot;container2&quot;&gt;
+    &lt;div class=&quot;main&quot;&gt;
+        &lt;div class=&quot;main-middle&quot;&gt;main---
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;left&quot;&gt;left--- &lt;/div&gt;
+    &lt;div class=&quot;right&quot;&gt;right--- &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><h4 id="完结！"><a href="#完结！" class="headerlink" title="完结！"></a>完结！</h4>
       
     </div>
 
@@ -451,7 +593,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-count">17</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -490,7 +632,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#背景："><span class="nav-number">1.</span> <span class="nav-text">背景：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1、-圣杯布局："><span class="nav-number">2.</span> <span class="nav-text">1、 圣杯布局：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、-双飞翼布局"><span class="nav-number">3.</span> <span class="nav-text">2、 双飞翼布局</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#背景："><span class="nav-number">1.</span> <span class="nav-text">背景：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1、-圣杯布局："><span class="nav-number">2.</span> <span class="nav-text">1、 圣杯布局：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、-双飞翼布局"><span class="nav-number">3.</span> <span class="nav-text">2、 双飞翼布局</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#完结！"><span class="nav-number">3.1.</span> <span class="nav-text">完结！</span></a></li></ol></li></ol></div>
             
 
           </div>
