@@ -93,19 +93,31 @@
 
 
 
-<meta name="description" content="一、user-agent看一下Chrome的User-Agent这里可以看出来，该Chrome是MAC的发布版，采用了兼容了Mozilla，Safari，内核兼容AppleWebkit和Gecko
-User-Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chro">
+<meta name="description" content="背景：
+续上文Object类的常用方法（一）
+上一篇文章介绍了Object.create…等
+5、 Object.entries:Object.entries()方法返回一个给定对象自身可枚举属性的键值对数组，其排列与使用 for…in 循环遍历该对象时返回的顺序一致（区别在于for-in 循环也枚举原型链中的属性）。
+
+Object.entries()返回一个数组，其元素是与直接在object上">
 <meta property="og:type" content="article">
-<meta property="og:title" content="flag">
-<meta property="og:url" content="http://qunqunyang.me/2017/12/26/http请求和响应/index.html">
+<meta property="og:title" content="Object类的常用方法 （二）">
+<meta property="og:url" content="http://qunqunyang.me/2018/06/19/Object类的常用方法（二）/index.html">
 <meta property="og:site_name" content="yangqun">
-<meta property="og:description" content="一、user-agent看一下Chrome的User-Agent这里可以看出来，该Chrome是MAC的发布版，采用了兼容了Mozilla，Safari，内核兼容AppleWebkit和Gecko
-User-Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chro">
-<meta property="og:updated_time" content="2018-01-28T08:44:09.431Z">
+<meta property="og:description" content="背景：
+续上文Object类的常用方法（一）
+上一篇文章介绍了Object.create…等
+5、 Object.entries:Object.entries()方法返回一个给定对象自身可枚举属性的键值对数组，其排列与使用 for…in 循环遍历该对象时返回的顺序一致（区别在于for-in 循环也枚举原型链中的属性）。
+
+Object.entries()返回一个数组，其元素是与直接在object上">
+<meta property="og:updated_time" content="2018-06-19T09:24:15.507Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="flag">
-<meta name="twitter:description" content="一、user-agent看一下Chrome的User-Agent这里可以看出来，该Chrome是MAC的发布版，采用了兼容了Mozilla，Safari，内核兼容AppleWebkit和Gecko
-User-Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chro">
+<meta name="twitter:title" content="Object类的常用方法 （二）">
+<meta name="twitter:description" content="背景：
+续上文Object类的常用方法（一）
+上一篇文章介绍了Object.create…等
+5、 Object.entries:Object.entries()方法返回一个给定对象自身可枚举属性的键值对数组，其排列与使用 for…in 循环遍历该对象时返回的顺序一致（区别在于for-in 循环也枚举原型链中的属性）。
+
+Object.entries()返回一个数组，其元素是与直接在object上">
 
 
 
@@ -133,13 +145,13 @@ User-Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KH
 
 
 
-  <link rel="canonical" href="http://qunqunyang.me/2017/12/26/http请求和响应/"/>
+  <link rel="canonical" href="http://qunqunyang.me/2018/06/19/Object类的常用方法（二）/"/>
 
 
 
 
 
-  <title>flag | yangqun</title>
+  <title>Object类的常用方法 （二） | yangqun</title>
   
 
 
@@ -268,7 +280,7 @@ User-Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KH
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://qunqunyang.me/2017/12/26/http请求和响应/">
+    <link itemprop="mainEntityOfPage" href="http://qunqunyang.me/2018/06/19/Object类的常用方法（二）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="qunqunyang">
@@ -285,7 +297,7 @@ User-Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KH
 
         
         
-          <h1 class="post-title" itemprop="name headline">flag</h1>
+          <h1 class="post-title" itemprop="name headline">Object类的常用方法 （二）</h1>
         
 
         <div class="post-meta">
@@ -297,8 +309,8 @@ User-Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KH
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-26T11:50:42+08:00">
-                2017-12-26
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-19T14:56:52+08:00">
+                2018-06-19
               </time>
             
 
@@ -332,36 +344,109 @@ User-Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KH
       
 
       
-        <h3 id="一、user-agent"><a href="#一、user-agent" class="headerlink" title="一、user-agent"></a>一、user-agent</h3><h3 id="看一下Chrome的User-Agent"><a href="#看一下Chrome的User-Agent" class="headerlink" title="看一下Chrome的User-Agent"></a>看一下Chrome的User-Agent</h3><h3 id="这里可以看出来，该Chrome是MAC的发布版，采用了兼容了Mozilla，Safari，内核兼容AppleWebkit和Gecko"><a href="#这里可以看出来，该Chrome是MAC的发布版，采用了兼容了Mozilla，Safari，内核兼容AppleWebkit和Gecko" class="headerlink" title="这里可以看出来，该Chrome是MAC的发布版，采用了兼容了Mozilla，Safari，内核兼容AppleWebkit和Gecko"></a>这里可以看出来，该Chrome是MAC的发布版，采用了兼容了Mozilla，Safari，内核兼容AppleWebkit和Gecko</h3><ul>
-<li>User-Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36</li>
-<li>看一下火狐的User-Agent<br>可以看出来，该Firefox为Windows平台的发布版，内核为Firefox的自家内核Gecko</li>
-<li>User-Agent:Mozilla/5.0 (Windows NT 6.1; WOW64; rv:30.0) Gecko/20100101 </li>
-<li>Firefox/30.0</li>
-<li>看一下Mac上的Safari</li>
-<li>看出来，兼容了Mozilla，为Mac系统的发布版，采用自家的Webkit内核(Apple)</li>
-<li>User-Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) </li>
-<li></li>
-<li><p>AppleWebKit/537.75.14 (KHTML, like Gecko) Version/7.0.3 Safari/537.75.14</p>
-</li>
-<li><p>最后是IE的User-Agent</p>
-<p>看出来，兼容了Mozilla，采用兼容模式的IE10，采用自家的Trident内核</p>
-</li>
-<li>User-Agent:Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Win64; x64; Trident/6.0)<ul>
-<li>模拟移动设备</li>
-</ul>
-</li>
-<li><p>我们这里可以模拟一个移动设备来查看一下，显示效果，模拟设备，Galaxy Note II ，通过该设备向服务端发送请求</p>
-</li>
-<li><p>请求标头，</p>
-</li>
-<li>User-Agent:Mozilla/5.0 (Linux; U; Android 4.1; en-us; GT-N7100 Build/JRO03C) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30</li>
-</ul>
-<p>二、host  主机域名，或ip地址</p>
-<p>三、accept</p>
-<p>四、refer</p>
-<p>五、gzip</p>
-<p>六、ttransfer-encoding</p>
+        <h3 id="背景："><a href="#背景：" class="headerlink" title="背景："></a>背景：</h3><blockquote>
+<p>续上文Object类的常用方法（一）</p>
+<p>上一篇文章介绍了Object.create…等</p>
+<h5 id="5、-Object-entries"><a href="#5、-Object-entries" class="headerlink" title="5、 Object.entries:"></a>5、 Object.entries:</h5><p>Object.entries()方法返回一个给定对象自身可枚举属性的键值对数组，其排列与使用 for…in 循环遍历该对象时返回的顺序一致（区别在于<br>for-in 循环也枚举原型链中的属性）。</p>
+</blockquote>
+<p>Object.entries()返回一个数组，其元素是与直接在object上找到的可枚举属性键值对相对应的数组。属性的顺序与通过手动循环对象的属性值所给出的顺序相同。</p>
+<p>参数： Object.entries(obj), 其中 obj 可以返回其可枚举属性的键值对的对象。</p>
+<p>返回值： 给定对象自身可枚举属性的键值对数组。</p>
+<p>举个栗子：</p>
+<pre><code>const obj = { foo: &apos;bar&apos;, baz: 42 };
+console.log(Object.entries(obj)); // [ [&apos;foo&apos;, &apos;bar&apos;], [&apos;baz&apos;, 42] ]
 
+// array like object
+const obj = { 0: &apos;a&apos;, 1: &apos;b&apos;, 2: &apos;c&apos; };
+console.log(Object.entries(obj)); // [ [&apos;0&apos;, &apos;a&apos;], [&apos;1&apos;, &apos;b&apos;], [&apos;2&apos;, &apos;c&apos;] ]
+
+// array like object with random key ordering
+const anObj = { 100: &apos;a&apos;, 2: &apos;b&apos;, 7: &apos;c&apos; };
+console.log(Object.entries(anObj)); // [ [&apos;2&apos;, &apos;b&apos;], [&apos;7&apos;, &apos;c&apos;], [&apos;100&apos;, &apos;a&apos;] ]
+
+// getFoo is property which isn&apos;t enumerable
+const myObj = Object.create({}, { getFoo: { value() { return this.foo; } } });
+myObj.foo = &apos;bar&apos;;
+console.log(Object.entries(myObj)); // [ [&apos;foo&apos;, &apos;bar&apos;] ]
+
+// non-object argument will be coerced to an object
+console.log(Object.entries(&apos;foo&apos;)); // [ [&apos;0&apos;, &apos;f&apos;], [&apos;1&apos;, &apos;o&apos;], [&apos;2&apos;, &apos;o&apos;] ]
+
+// iterate through key-value gracefully
+const obj = { a: 5, b: 7, c: 9 };
+for (const [key, value] of Object.entries(obj)) {
+  console.log(`${key} ${value}`); // &quot;a 5&quot;, &quot;b 7&quot;, &quot;c 9&quot;
+}
+
+// Or, using array extras
+Object.entries(obj).forEach(([key, value]) =&gt; {
+console.log(`${key} ${value}`); // &quot;a 5&quot;, &quot;b 7&quot;, &quot;c 9&quot;
+});
+</code></pre><h5 id="6、-Object-create"><a href="#6、-Object-create" class="headerlink" title="6、 Object.create:"></a>6、 Object.create:</h5><blockquote>
+<p>方法会使用指定的原型对象及其属性去创建一个新的对象</p>
+<p>Object.create(proto[, propertiesObject])</p>
+<p>其中参数proto为一个对象，作为新创建对象的原型</p>
+<p>propertiesObject: 对象，可选参数，为新创建的对象指定属性对象。</p>
+</blockquote>
+<p>注意，使用Object.create()方法创建对象时，如果不是继承一个原有的对象，而是创建一个全新的对象，就要把proto设置为null。</p>
+<p>来看一个简单的例子：</p>
+<pre><code>// 基类
+function Site() {
+  this.name = &apos;Site&apos;;
+  this.domain = &apos;domain&apos;;
+}
+
+Site.prototype.create = function(name, domain) {
+  this.name = name;
+  this.domain = domain;
+};
+
+// 子类
+function Itbilu() {
+  Site.call(this); //调用基类的构造函数
+}
+
+// 继承父类
+Itbilu.prototype = Object.create(Site.prototype);
+
+// 创建类实例
+var itbilu = new Itbilu();
+
+itbilu instanceof Site;  // true
+tbilu instanceof Itbilu;  // true
+
+itbilu.create(&apos;IT笔录&apos;, &apos;itbilu.com&apos;);
+itbilu.name;    // &apos;IT笔录&apos;
+itbilu.domain;  // &apos;itbilu.com&apos;
+</code></pre><p>使用 Object.create 的 propertyObject参数</p>
+<pre><code>var o;
+
+// 创建一个原型为null的空对象
+o = Object.create(null);
+
+
+o = {};
+// 以字面量方式创建的空对象就相当于:
+o = Object.create(Object.prototype);
+
+
+o = Object.create(Object.prototype, {
+  // foo会成为所创建对象的数据属性
+  foo: { 
+    writable:true,
+    configurable:true,
+    value: &quot;hello&quot; 
+  },
+  // bar会成为所创建对象的访问器属性
+  bar: {
+    configurable: false,
+    get: function() { return 10 },
+    set: function(value) {
+      console.log(&quot;Setting `o.bar` to&quot;, value);
+    }
+  }
+});
+</code></pre><h5 id="7、-Object-defineProperties"><a href="#7、-Object-defineProperties" class="headerlink" title="7、 Object.defineProperties"></a>7、 Object.defineProperties</h5><h5 id="8、Object-defineProperty"><a href="#8、Object-defineProperty" class="headerlink" title="8、Object.defineProperty"></a>8、Object.defineProperty</h5><h5 id="9、Object-hasOwnProperty"><a href="#9、Object-hasOwnProperty" class="headerlink" title="9、Object.hasOwnProperty"></a>9、Object.hasOwnProperty</h5>
       
     </div>
 
@@ -397,8 +482,8 @@ User-Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KH
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/12/26/多终端/" rel="next" title="text">
-                <i class="fa fa-chevron-left"></i> text
+              <a href="/2018/06/15/Object类的常用方法/" rel="next" title="Object类的常用方法 （一）">
+                <i class="fa fa-chevron-left"></i> Object类的常用方法 （一）
               </a>
             
           </div>
@@ -406,10 +491,6 @@ User-Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KH
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/12/26/css/" rel="prev" title="浏览器">
-                浏览器 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -521,7 +602,7 @@ User-Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KH
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、user-agent"><span class="nav-number">1.</span> <span class="nav-text">一、user-agent</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#看一下Chrome的User-Agent"><span class="nav-number">2.</span> <span class="nav-text">看一下Chrome的User-Agent</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#这里可以看出来，该Chrome是MAC的发布版，采用了兼容了Mozilla，Safari，内核兼容AppleWebkit和Gecko"><span class="nav-number">3.</span> <span class="nav-text">这里可以看出来，该Chrome是MAC的发布版，采用了兼容了Mozilla，Safari，内核兼容AppleWebkit和Gecko</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#背景："><span class="nav-number">1.</span> <span class="nav-text">背景：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#5、-Object-entries"><span class="nav-number">1.0.1.</span> <span class="nav-text">5、 Object.entries:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6、-Object-create"><span class="nav-number">1.0.2.</span> <span class="nav-text">6、 Object.create:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7、-Object-defineProperties"><span class="nav-number">1.0.3.</span> <span class="nav-text">7、 Object.defineProperties</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#8、Object-defineProperty"><span class="nav-number">1.0.4.</span> <span class="nav-text">8、Object.defineProperty</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#9、Object-hasOwnProperty"><span class="nav-number">1.0.5.</span> <span class="nav-text">9、Object.hasOwnProperty</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
