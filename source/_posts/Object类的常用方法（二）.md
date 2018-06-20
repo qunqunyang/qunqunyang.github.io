@@ -1,25 +1,22 @@
 ---
 title: Object类的常用方法 （二）
 ---
-### 背景：
-
-
-
+-----------
 > 续上文Object类的常用方法（一）
 
-> 上一篇文章介绍了Object.create...等
+> 上一篇文章介绍了Object.assign(),Object.is()，Object.keys()，Object.values()
+本篇文章会有点枯燥捏！
 
-
+下面就按顺序排了
 ##### 5、 Object.entries:	
 
-> Object.entries()方法返回一个给定对象自身可枚举属性的键值对数组，其排列与使用 for...in 循环遍历该对象时返回的顺序一致（区别在于 
-> for-in 循环也枚举原型链中的属性）。
+> `Object.entries()`方法返回一个给定对象自身可枚举属性的键值对数组，其排列与使用 for...in 循环遍历该对象时返回的顺序一致（区别在于 for-in 循环也枚举原型链中的属性）。
 
-Object.entries()返回一个数组，其元素是与直接在object上找到的可枚举属性键值对相对应的数组。属性的顺序与通过手动循环对象的属性值所给出的顺序相同。
+    Object.entries()返回一个数组，其元素是与直接在object上找到的可枚举属性键值对相对应的数组。属性的顺序与通过手动循环对象的属性值所给出的顺序相同。
 
-参数： Object.entries(obj), 其中 obj 可以返回其可枚举属性的键值对的对象。
+    参数： Object.entries(obj), 其中 obj 可以返回其可枚举属性的键值对的对象。
 
-返回值： 给定对象自身可枚举属性的键值对数组。
+    返回值： 给定对象自身可枚举属性的键值对数组。
 
 举个栗子：
 
@@ -56,7 +53,7 @@ Object.entries()返回一个数组，其元素是与直接在object上找到的�
 
 ##### 6、 Object.create:	
 		
-> 方法会使用指定的原型对象及其属性去创建一个新的对象
+> ` Object.create()` 方法会使用指定的原型对象及其属性去创建一个新的对象
 > 
 > Object.create(proto[, propertiesObject])
 
@@ -64,7 +61,7 @@ Object.entries()返回一个数组，其元素是与直接在object上找到的�
 > 
 > propertiesObject: 对象，可选参数，为新创建的对象指定属性对象。
 
-注意，使用Object.create()方法创建对象时，如果不是继承一个原有的对象，而是创建一个全新的对象，就要把proto设置为null。
+** 注意，使用Object.create()方法创建对象时，如果不是继承一个原有的对象，而是创建一个全新的对象，就要把proto设置为null。**
 
 来看一个简单的例子：
 
@@ -97,18 +94,16 @@ Object.entries()返回一个数组，其元素是与直接在object上找到的�
 	itbilu.name;    // 'IT笔录'
 	itbilu.domain;  // 'itbilu.com'
 
-使用 Object.create 的 propertyObject参数
+使用 ` Object.create()` 的 propertyObject参数
 
 	var o;
 	
 	// 创建一个原型为null的空对象
 	o = Object.create(null);
 	
-	
 	o = {};
 	// 以字面量方式创建的空对象就相当于:
 	o = Object.create(Object.prototype);
-	
 	
 	o = Object.create(Object.prototype, {
 	  // foo会成为所创建对象的数据属性
@@ -136,12 +131,12 @@ Object.entries()返回一个数组，其元素是与直接在object上找到的�
 		descriptor：必需。目标属性所拥有的特性
 	返回值： 传入函数的对象。即第一个参数obj
 
-针对属性，我们可以给这个属性设置一些特性，比如是否只读不可以写；是否可以被for..in或Object.keys()遍历。
+针对属性，我们可以给这个属性设置一些特性，比如是否只读不可以写；是否可以被for..in或Object.keys()遍历
 
 给对象的属性添加特性描述，目前提供两种形式：数据描述和存取器描述。
 
 数据描述：
-当修改或者定义对象的某个属性的时候，给这个属性添加一些特性：
+   当修改或者定义对象的某个属性的时候，给这个属性添加一些特性：
 	
 	var obj = {
 	    test:"hello"
@@ -163,199 +158,192 @@ Object.entries()返回一个数组，其元素是与直接在object上找到的�
 
 数据描述中的属性都是可选的。看一下每个设置的作用。
 
-value： 属性对应的值,可以使任意类型的值，默认为undefined
+1. value： 属性对应的值,可以使任意类型的值，默认为undefined
 
-	var obj = {};
-	//第一种情况，不设置value属性。
-	Object.defineProperty(obj,"newKey",{})
-	console.log(obj.newKey);   //undefined	
-	//第二种 设置value属性
+    	var obj = {};
+    	//第一种情况，不设置value属性。
+    	Object.defineProperty(obj,"newKey",{})
+    	console.log(obj.newKey);   //undefined	
+    	//第二种 设置value属性
+    
+    	Object.defineProperty(obj,"newKey",{
+    		value： 'hello'
+    	})
+    	console.log(obj.newKey);   //hello	
 
-	Object.defineProperty(obj,"newKey",{
-		value： 'hello'
-	})
-	console.log(obj.newKey);   //hello	
+2. writable 
+    属性的值是否可以被重写。设置为true可以被重写，设置为false,不可被重写。 默认为false
 
-writable 
-属性的值是否可以被重写。设置为true可以被重写，设置为false,不可被重写。 默认为false
+    	var obj = {}
+    	//第一种情况：writable设置为false，不能重写。
+    	Object.defineProperty(obj,"newKey",{
+    	    value:"hello",
+    	    writable:false
+    	});
+    	//更改newKey的值
+    	obj.newKey = "change value";
+    	console.log( obj.newKey );  //hello
+    
+    	//第二种情况：writable设置为true，可以重写
+    	Object.defineProperty(obj,"newKey",{
+    	    value:"hello",
+    	    writable:true
+    	});
+    	//更改newKey的值
+    	obj.newKey = "change value";
+    	console.log( obj.newKey );  //change value
 
-	var obj = {}
-	//第一种情况：writable设置为false，不能重写。
-	Object.defineProperty(obj,"newKey",{
-	    value:"hello",
-	    writable:false
-	});
-	//更改newKey的值
-	obj.newKey = "change value";
-	console.log( obj.newKey );  //hello
-
-	//第二种情况：writable设置为true，可以重写
-	Object.defineProperty(obj,"newKey",{
-	    value:"hello",
-	    writable:true
-	});
-	//更改newKey的值
-	obj.newKey = "change value";
-	console.log( obj.newKey );  //change value
-
-
-enumerable
-
+3. enumerable
 此属性是否可以被枚举（使用for...in或Object.keys()）。设置为true可以被枚举；设置为false，不能被枚举。默认为false。
 
-	var obj = {}
-	//第一种情况：enumerable设置为false，不能被枚举。
-	Object.defineProperty(obj,"newKey",{
-	    value:"hello",
-	    writable:false,
-	    enumerable:false
-	});
-	
-	//枚举对象的属性
-	for( var attr in obj ){
-	    console.log( attr );  
-	}
-	//第二种情况：enumerable设置为true，可以被枚举。
-	Object.defineProperty(obj,"newKey",{
-	    value:"hello",
-	    writable:false,
-	    enumerable:true
-	});
-	
-	//枚举对象的属性
-	for( var attr in obj ){
-	    console.log( attr );  //newKey
-	}
+    	var obj = {}
+    	//第一种情况：enumerable设置为false，不能被枚举。
+    	Object.defineProperty(obj,"newKey",{
+    	    value:"hello",
+    	    writable:false,
+    	    enumerable:false
+    	});
+    	
+    	//枚举对象的属性
+    	for( var attr in obj ){
+    	    console.log( attr );  
+    	}
+    	//第二种情况：enumerable设置为true，可以被枚举。
+    	Object.defineProperty(obj,"newKey",{
+    	    value:"hello",
+    	    writable:false,
+    	    enumerable:true
+    	});
+    	
+    	//枚举对象的属性
+    	for( var attr in obj ){
+    	    console.log( attr );  //newKey
+    	}
 
-configurable
+4. configurable
 
-是否可以删除目标属性或是否可以再次修改属性的特性（writable, configurable, enumerable）。设置为true可以被删除或可以重新设置特性；设置为false，不能被可以被删除或不可以重新设置特性。默认为false。
+    是否可以删除目标属性或是否可以再次修改属性的特性（writable, configurable, enumerable）。设置为true可以被删除或可以重新设置特性；设置为false，不能被可以被删除或不可以重新设置特性。默认为false。
 
-这个属性起到两个作用：
+    这个属性起到两个作用：
 
-1. 目标属性是否可以使用delete删除
+        1. 目标属性是否可以使用delete删除
+    
+        2. 目标属性是否可以再次设置特性
+    
+    		//-----------------测试目标属性是否能被删除------------------------
+    		var obj = {}
+    		//第一种情况：configurable设置为false，不能被删除。
+    		Object.defineProperty(obj,"newKey",{
+    		    value:"hello",
+    		    writable:false,
+    		    enumerable:false,
+    		    configurable:false
+    		});
+    		//删除属性
+    		delete obj.newKey;
+    		console.log( obj.newKey ); //hello
+    		
+    		//第二种情况：configurable设置为true，可以被删除。
+    		Object.defineProperty(obj,"newKey",{
+    		    value:"hello",
+    		    writable:false,
+    		    enumerable:false,
+    		    configurable:true
+    		});
+    		//删除属性
+    		delete obj.newKey;
+    		console.log( obj.newKey ); //undefined
+    		
+    		//-----------------测试是否可以再次修改特性------------------------
+    		var obj = {}
+    		//第一种情况：configurable设置为false，不能再次修改特性。
+    		Object.defineProperty(obj,"newKey",{
+    		    value:"hello",
+    		    writable:false,
+    		    enumerable:false,
+    		    configurable:false
+    		});
+    		
+    		//重新修改特性
+    		Object.defineProperty(obj,"newKey",{
+    		    value:"hello",
+    		    writable:true,
+    		    enumerable:true,
+    		    configurable:true
+    		});
+    		console.log( obj.newKey ); //报错：Uncaught TypeError: Cannot redefine property: newKey
+    		
+    		//第二种情况：configurable设置为true，可以再次修改特性。
+    		Object.defineProperty(obj,"newKey",{
+    		    value:"hello",
+    		    writable:false,
+    		    enumerable:false,
+    		    configurable:true
+    		});
+    		
+    		//重新修改特性
+    		Object.defineProperty(obj,"newKey",{
+    		    value:"hello",
+    		    writable:true,
+    		    enumerable:true,
+    		    configurable:true
+    		});
+    		console.log( obj.newKey ); //hello
 
-2. 目标属性是否可以再次设置特性
+    除了给新特性的属性设置特性，也可以给已有的属性设置特性。
 
-		//-----------------测试目标属性是否能被删除------------------------
-		var obj = {}
-		//第一种情况：configurable设置为false，不能被删除。
-		Object.defineProperty(obj,"newKey",{
-		    value:"hello",
-		    writable:false,
-		    enumerable:false,
-		    configurable:false
-		});
-		//删除属性
-		delete obj.newKey;
-		console.log( obj.newKey ); //hello
-		
-		//第二种情况：configurable设置为true，可以被删除。
-		Object.defineProperty(obj,"newKey",{
-		    value:"hello",
-		    writable:false,
-		    enumerable:false,
-		    configurable:true
-		});
-		//删除属性
-		delete obj.newKey;
-		console.log( obj.newKey ); //undefined
-		
-		//-----------------测试是否可以再次修改特性------------------------
-		var obj = {}
-		//第一种情况：configurable设置为false，不能再次修改特性。
-		Object.defineProperty(obj,"newKey",{
-		    value:"hello",
-		    writable:false,
-		    enumerable:false,
-		    configurable:false
-		});
-		
-		//重新修改特性
-		Object.defineProperty(obj,"newKey",{
-		    value:"hello",
-		    writable:true,
-		    enumerable:true,
-		    configurable:true
-		});
-		console.log( obj.newKey ); //报错：Uncaught TypeError: Cannot redefine property: newKey
-		
-		//第二种情况：configurable设置为true，可以再次修改特性。
-		Object.defineProperty(obj,"newKey",{
-		    value:"hello",
-		    writable:false,
-		    enumerable:false,
-		    configurable:true
-		});
-		
-		//重新修改特性
-		Object.defineProperty(obj,"newKey",{
-		    value:"hello",
-		    writable:true,
-		    enumerable:true,
-		    configurable:true
-		});
-		console.log( obj.newKey ); //hello
+    	//定义对象的时候添加的属性，是可删除、可重写、可枚举的。
+    	var obj = {
+    	    test:"hello"
+    	}
+    	//改写值
+    	obj.test = 'change value';
+    	
+    	console.log( obj.test ); //'change value'
+    	
+    	Object.defineProperty(obj,"test",{
+    	    writable:false
+    	})
+    	
+    	//再次改写值
+    	obj.test = 'change value again';
+    	console.log( obj.test ); //依然是：'change value'
 
-除了给新特性的属性设置特性，也可以给已有的属性设置特性。
+    提示： 一旦使用Object.defineProperty给对象添加属性，那么如果不设置属性的特性，那么configrable,enumerable,writable这些值都是默认的false。
 
-	//定义对象的时候添加的属性，是可删除、可重写、可枚举的。
-	var obj = {
-	    test:"hello"
-	}
-	//改写值
-	obj.test = 'change value';
-	
-	console.log( obj.test ); //'change value'
-	
-	Object.defineProperty(obj,"test",{
-	    writable:false
-	})
-	
-	
-	//再次改写值
-	obj.test = 'change value again';
-	
-	console.log( obj.test ); //依然是：'change value'
+    	var obj = {};
+    
+    	定义新属性后，这个属性的特性中，都是默认为false。这就导致了newKey这个是不能重写，不能枚举，不能再次设置特性。
+    	//
+    	Object.defineProperty(obj,'newKey',{
+    	});
+    	
+    	//设置值
+    	obj.newKey = 'hello';
+    	console.log(obj.newKey);  //undefined
+    	
+    	//枚举
+    	for( var attr in obj ){
+    	    console.log(attr);
+    	}
 
-提示： 一旦使用Object.defineProperty给对象添加属性，那么如果不设置属性的特性，那么configrable,enumerable,writable这些值都是默认的false。
+    特性总结：
 
-	var obj = {};
-
-	定义新属性后，这个属性的特性中，都是默认为false。这就导致了newKey这个是不能重写，不能枚举，不能再次设置特性。
-	//
-	Object.defineProperty(obj,'newKey',{
-	
-	});
-	
-	//设置值
-	obj.newKey = 'hello';
-	console.log(obj.newKey);  //undefined
-	
-	//枚举
-	for( var attr in obj ){
-	    console.log(attr);
-	}
-
-特性总结：
-
-> value: 设置属性的值
-> 
->writable: 值是否可以重写。true | false
->
->enumerable: 目标属性是否可以被枚举。true | false
->
->configurable: 目标属性是否可以被删除或是否可以再次修改特性 true | false
+    > value: 设置属性的值
+    > 
+    >writable: 值是否可以重写。true | false
+    >
+    >enumerable: 目标属性是否可以被枚举。true | false
+    >
+    >configurable: 目标属性是否可以被删除或是否可以再次修改特性 true | false
 ##### 8、Object.hasOwnProperty（）
 
 > 用于知识一个对象自身是否具有指定名称的属性，如果有返回true， 如果没有返回false。
 
-	语法 ：object.hasOwnProperty( propertyName )
+	语法 ：object.hasOwnProperty(propertyName)
 	propertyName：指定的属性名称
-
-返回值： 
-
-hasOwnProperty（）返回的值是Boolean类型。如果对象Object具有名称为propertyName的属性，则返回true,否则返回false。
+    返回值： 
+    hasOwnProperty（）返回的值是Boolean类型。如果对象Object具有名称为propertyName的属性，则返回true    ,否则返回false。
 
 此方法不会检查对象的原型链中是否存在此属性，该属性只有是对象本身的一个成员才会返回true。
 
@@ -377,16 +365,23 @@ hasOwnProperty（）返回的值是Boolean类型。如果对象Object具有名�
 	}
 //使用对象obj覆盖Site本身的prototype属性
 
-isHas.prototype = obj;
+    isHas.prototype = obj;
+    
+    var h = new isHas();
+    document.writeln(s.hasOwnProperty('name')); //true
+    document.writeln(s.hasOwnProperty('sayHi')); //true
+    
+    //以下属性继承自原型链，所以为false
+    document.writeln(s.hasOwnProperty('mood')); //false
+    document.writeln(s.hasOwnProperty('sayHello')); //false
+    
+    // 想要查看对象(包括原型链)是否具备指定的属性，可以使用in操作符
+    document.writeln('mood' in s); //true
+    document.writeln('sayHello' in s); //true
+    
+ 完结！ 后续有更新再添加！
 
-var h = new isHas();
-document.writeln(s.hasOwnProperty('name')); //true
-document.writeln(s.hasOwnProperty('sayHi')); //true
 
-//以下属性继承自原型链，所以为false
-document.writeln(s.hasOwnProperty('mood')); //false
-document.writeln(s.hasOwnProperty('sayHello')); //false
 
-// 想要查看对象(包括原型链)是否具备指定的属性，可以使用in操作符
-document.writeln('mood' in s); //true
-document.writeln('sayHello' in s); //true
+
+
