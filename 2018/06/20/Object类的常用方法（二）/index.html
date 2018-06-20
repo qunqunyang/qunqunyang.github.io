@@ -101,7 +101,7 @@
 Object.entries()返回一个数组，其元素是与直接在object上">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Object类的常用方法 （二）">
-<meta property="og:url" content="http://qunqunyang.me/2018/06/19/Object类的常用方法（二）/index.html">
+<meta property="og:url" content="http://qunqunyang.me/2018/06/20/Object类的常用方法（二）/index.html">
 <meta property="og:site_name" content="yangqun">
 <meta property="og:description" content="背景：
 续上文Object类的常用方法（一）
@@ -109,7 +109,7 @@ Object.entries()返回一个数组，其元素是与直接在object上">
 5、 Object.entries:Object.entries()方法返回一个给定对象自身可枚举属性的键值对数组，其排列与使用 for…in 循环遍历该对象时返回的顺序一致（区别在于for-in 循环也枚举原型链中的属性）。
 
 Object.entries()返回一个数组，其元素是与直接在object上">
-<meta property="og:updated_time" content="2018-06-19T09:24:15.507Z">
+<meta property="og:updated_time" content="2018-06-20T01:57:50.460Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Object类的常用方法 （二）">
 <meta name="twitter:description" content="背景：
@@ -145,7 +145,7 @@ Object.entries()返回一个数组，其元素是与直接在object上">
 
 
 
-  <link rel="canonical" href="http://qunqunyang.me/2018/06/19/Object类的常用方法（二）/"/>
+  <link rel="canonical" href="http://qunqunyang.me/2018/06/20/Object类的常用方法（二）/"/>
 
 
 
@@ -280,7 +280,7 @@ Object.entries()返回一个数组，其元素是与直接在object上">
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://qunqunyang.me/2018/06/19/Object类的常用方法（二）/">
+    <link itemprop="mainEntityOfPage" href="http://qunqunyang.me/2018/06/20/Object类的常用方法（二）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="qunqunyang">
@@ -309,8 +309,8 @@ Object.entries()返回一个数组，其元素是与直接在object上">
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-19T14:56:52+08:00">
-                2018-06-19
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-20T09:57:50+08:00">
+                2018-06-20
               </time>
             
 
@@ -446,7 +446,200 @@ o = Object.create(Object.prototype, {
     }
   }
 });
-</code></pre><h5 id="7、-Object-defineProperties"><a href="#7、-Object-defineProperties" class="headerlink" title="7、 Object.defineProperties"></a>7、 Object.defineProperties</h5><h5 id="8、Object-defineProperty"><a href="#8、Object-defineProperty" class="headerlink" title="8、Object.defineProperty"></a>8、Object.defineProperty</h5><h5 id="9、Object-hasOwnProperty"><a href="#9、Object-hasOwnProperty" class="headerlink" title="9、Object.hasOwnProperty"></a>9、Object.hasOwnProperty</h5>
+</code></pre><h5 id="7、Object-defineProperty"><a href="#7、Object-defineProperty" class="headerlink" title="7、Object.defineProperty"></a>7、Object.defineProperty</h5><pre><code>语法： Object.defineProperty(obj, prop, descriptor)
+参数： 
+    obj：必需。目标对象 
+    prop：必需。需定义或修改的属性的名字
+    descriptor：必需。目标属性所拥有的特性
+返回值： 传入函数的对象。即第一个参数obj
+</code></pre><p>针对属性，我们可以给这个属性设置一些特性，比如是否只读不可以写；是否可以被for..in或Object.keys()遍历。</p>
+<p>给对象的属性添加特性描述，目前提供两种形式：数据描述和存取器描述。</p>
+<p>数据描述：<br>当修改或者定义对象的某个属性的时候，给这个属性添加一些特性：</p>
+<pre><code>var obj = {
+    test:&quot;hello&quot;
+}
+//对象已有的属性添加特性描述
+Object.defineProperty(obj,&quot;test&quot;,{
+    configurable:true | false,
+    enumerable:true | false,
+    value:任意类型的值,
+    writable:true | false
+});
+//对象新添加的属性的特性描述
+Object.defineProperty(obj,&quot;newKey&quot;,{
+    configurable:true | false,
+    enumerable:true | false,
+    value:任意类型的值,
+    writable:true | false
+});
+</code></pre><p>数据描述中的属性都是可选的。看一下每个设置的作用。</p>
+<p>value： 属性对应的值,可以使任意类型的值，默认为undefined</p>
+<pre><code>var obj = {};
+//第一种情况，不设置value属性。
+Object.defineProperty(obj,&quot;newKey&quot;,{})
+console.log(obj.newKey);   //undefined    
+//第二种 设置value属性
+
+Object.defineProperty(obj,&quot;newKey&quot;,{
+    value： &apos;hello&apos;
+})
+console.log(obj.newKey);   //hello    
+</code></pre><p>writable<br>属性的值是否可以被重写。设置为true可以被重写，设置为false,不可被重写。 默认为false</p>
+<pre><code>var obj = {}
+//第一种情况：writable设置为false，不能重写。
+Object.defineProperty(obj,&quot;newKey&quot;,{
+    value:&quot;hello&quot;,
+    writable:false
+});
+//更改newKey的值
+obj.newKey = &quot;change value&quot;;
+console.log( obj.newKey );  //hello
+
+//第二种情况：writable设置为true，可以重写
+Object.defineProperty(obj,&quot;newKey&quot;,{
+    value:&quot;hello&quot;,
+    writable:true
+});
+//更改newKey的值
+obj.newKey = &quot;change value&quot;;
+console.log( obj.newKey );  //change value
+</code></pre><p>enumerable</p>
+<p>此属性是否可以被枚举（使用for…in或Object.keys()）。设置为true可以被枚举；设置为false，不能被枚举。默认为false。</p>
+<pre><code>var obj = {}
+//第一种情况：enumerable设置为false，不能被枚举。
+Object.defineProperty(obj,&quot;newKey&quot;,{
+    value:&quot;hello&quot;,
+    writable:false,
+    enumerable:false
+});
+
+//枚举对象的属性
+for( var attr in obj ){
+    console.log( attr );  
+}
+//第二种情况：enumerable设置为true，可以被枚举。
+Object.defineProperty(obj,&quot;newKey&quot;,{
+    value:&quot;hello&quot;,
+    writable:false,
+    enumerable:true
+});
+
+//枚举对象的属性
+for( var attr in obj ){
+    console.log( attr );  //newKey
+}
+</code></pre><p>configurable</p>
+<p>是否可以删除目标属性或是否可以再次修改属性的特性（writable, configurable, enumerable）。设置为true可以被删除或可以重新设置特性；设置为false，不能被可以被删除或不可以重新设置特性。默认为false。</p>
+<p>这个属性起到两个作用：</p>
+<ol>
+<li><p>目标属性是否可以使用delete删除</p>
+</li>
+<li><p>目标属性是否可以再次设置特性</p>
+<pre><code>//-----------------测试目标属性是否能被删除------------------------
+var obj = {}
+//第一种情况：configurable设置为false，不能被删除。
+Object.defineProperty(obj,&quot;newKey&quot;,{
+    value:&quot;hello&quot;,
+    writable:false,
+    enumerable:false,
+    configurable:false
+});
+//删除属性
+delete obj.newKey;
+console.log( obj.newKey ); //hello
+
+//第二种情况：configurable设置为true，可以被删除。
+Object.defineProperty(obj,&quot;newKey&quot;,{
+    value:&quot;hello&quot;,
+    writable:false,
+    enumerable:false,
+    configurable:true
+});
+//删除属性
+delete obj.newKey;
+console.log( obj.newKey ); //undefined
+
+//-----------------测试是否可以再次修改特性------------------------
+var obj = {}
+//第一种情况：configurable设置为false，不能再次修改特性。
+Object.defineProperty(obj,&quot;newKey&quot;,{
+    value:&quot;hello&quot;,
+    writable:false,
+    enumerable:false,
+    configurable:false
+});
+
+//重新修改特性
+Object.defineProperty(obj,&quot;newKey&quot;,{
+    value:&quot;hello&quot;,
+    writable:true,
+    enumerable:true,
+    configurable:true
+});
+console.log( obj.newKey ); //报错：Uncaught TypeError: Cannot redefine property: newKey
+
+//第二种情况：configurable设置为true，可以再次修改特性。
+Object.defineProperty(obj,&quot;newKey&quot;,{
+    value:&quot;hello&quot;,
+    writable:false,
+    enumerable:false,
+    configurable:true
+});
+
+//重新修改特性
+Object.defineProperty(obj,&quot;newKey&quot;,{
+    value:&quot;hello&quot;,
+    writable:true,
+    enumerable:true,
+    configurable:true
+});
+console.log( obj.newKey ); //hello
+</code></pre></li>
+</ol>
+<p>除了给新特性的属性设置特性，也可以给已有的属性设置特性。</p>
+<pre><code>//定义对象的时候添加的属性，是可删除、可重写、可枚举的。
+var obj = {
+    test:&quot;hello&quot;
+}
+//改写值
+obj.test = &apos;change value&apos;;
+
+console.log( obj.test ); //&apos;change value&apos;
+
+Object.defineProperty(obj,&quot;test&quot;,{
+    writable:false
+})
+
+
+//再次改写值
+obj.test = &apos;change value again&apos;;
+
+console.log( obj.test ); //依然是：&apos;change value&apos;
+</code></pre><p>提示： 一旦使用Object.defineProperty给对象添加属性，那么如果不设置属性的特性，那么configrable,enumerable,writable这些值都是默认的false。</p>
+<pre><code>var obj = {};
+
+定义新属性后，这个属性的特性中，都是默认为false。这就导致了newKey这个是不能重写，不能枚举，不能再次设置特性。
+//
+Object.defineProperty(obj,&apos;newKey&apos;,{
+
+});
+
+//设置值
+obj.newKey = &apos;hello&apos;;
+console.log(obj.newKey);  //undefined
+
+//枚举
+for( var attr in obj ){
+    console.log(attr);
+}
+</code></pre><p>特性总结：</p>
+<blockquote>
+<p>value: 设置属性的值</p>
+<p>writable: 值是否可以重写。true | false</p>
+<p>enumerable: 目标属性是否可以被枚举。true | false</p>
+<p>configurable: 目标属性是否可以被删除或是否可以再次修改特性 true | false</p>
+<h5 id="8、Object-hasOwnProperty"><a href="#8、Object-hasOwnProperty" class="headerlink" title="8、Object.hasOwnProperty"></a>8、Object.hasOwnProperty</h5></blockquote>
+
       
     </div>
 
@@ -602,7 +795,7 @@ o = Object.create(Object.prototype, {
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#背景："><span class="nav-number">1.</span> <span class="nav-text">背景：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#5、-Object-entries"><span class="nav-number">1.0.1.</span> <span class="nav-text">5、 Object.entries:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6、-Object-create"><span class="nav-number">1.0.2.</span> <span class="nav-text">6、 Object.create:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7、-Object-defineProperties"><span class="nav-number">1.0.3.</span> <span class="nav-text">7、 Object.defineProperties</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#8、Object-defineProperty"><span class="nav-number">1.0.4.</span> <span class="nav-text">8、Object.defineProperty</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#9、Object-hasOwnProperty"><span class="nav-number">1.0.5.</span> <span class="nav-text">9、Object.hasOwnProperty</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#背景："><span class="nav-number">1.</span> <span class="nav-text">背景：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#5、-Object-entries"><span class="nav-number">1.0.1.</span> <span class="nav-text">5、 Object.entries:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6、-Object-create"><span class="nav-number">1.0.2.</span> <span class="nav-text">6、 Object.create:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7、Object-defineProperty"><span class="nav-number">1.0.3.</span> <span class="nav-text">7、Object.defineProperty</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#8、Object-hasOwnProperty"><span class="nav-number">1.0.4.</span> <span class="nav-text">8、Object.hasOwnProperty</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
