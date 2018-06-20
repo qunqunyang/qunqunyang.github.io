@@ -8,6 +8,8 @@ title: Object类的常用方法 （二）
 > 续上文Object类的常用方法（一）
 
 > 上一篇文章介绍了Object.create...等
+
+
 ##### 5、 Object.entries:	
 
 > Object.entries()方法返回一个给定对象自身可枚举属性的键值对数组，其排列与使用 for...in 循环遍历该对象时返回的顺序一致（区别在于 
@@ -344,4 +346,47 @@ configurable
 >enumerable: 目标属性是否可以被枚举。true | false
 >
 >configurable: 目标属性是否可以被删除或是否可以再次修改特性 true | false
-##### 8、Object.hasOwnProperty
+##### 8、Object.hasOwnProperty（）
+
+> 用于知识一个对象自身是否具有指定名称的属性，如果有返回true， 如果没有返回false。
+
+	语法 ：object.hasOwnProperty( propertyName )
+	propertyName：指定的属性名称
+
+返回值： 
+
+hasOwnProperty（）返回的值是Boolean类型。如果对象Object具有名称为propertyName的属性，则返回true,否则返回false。
+
+此方法不会检查对象的原型链中是否存在此属性，该属性只有是对象本身的一个成员才会返回true。
+
+举个例子：
+	
+	function isHas(){
+		this.name = 'today',
+		this.week = 'wendsday',
+		this.sayHi = function(){
+			document.writeln('今天是'+this.name);
+		}
+	}
+
+	var obj = {
+		mood = 'happy',
+		sayHello = function(){
+			document.writeln('今天的心情是'+this.mood);
+		}
+	}
+//使用对象obj覆盖Site本身的prototype属性
+
+isHas.prototype = obj;
+
+var h = new isHas();
+document.writeln(s.hasOwnProperty('name')); //true
+document.writeln(s.hasOwnProperty('sayHi')); //true
+
+//以下属性继承自原型链，所以为false
+document.writeln(s.hasOwnProperty('mood')); //false
+document.writeln(s.hasOwnProperty('sayHello')); //false
+
+// 想要查看对象(包括原型链)是否具备指定的属性，可以使用in操作符
+document.writeln('mood' in s); //true
+document.writeln('sayHello' in s); //true
