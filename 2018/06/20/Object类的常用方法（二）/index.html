@@ -96,9 +96,11 @@
 <meta name="description" content="背景：
 续上文Object类的常用方法（一）
 上一篇文章介绍了Object.create…等
-5、 Object.entries:Object.entries()方法返回一个给定对象自身可枚举属性的键值对数组，其排列与使用 for…in 循环遍历该对象时返回的顺序一致（区别在于for-in 循环也枚举原型链中的属性）。
 
-Object.entries()返回一个数组，其元素是与直接在object上">
+5、 Object.entries:
+Object.entries()方法返回一个给定对象自身可枚举属性的键值对数组，其排列与使用 for…in 循环遍历该对象时返回的顺序一致（区别在于for-in 循环也枚举原型链中的属性）。
+
+Object.entries()返回一个数组，其元素是与直接在objec">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Object类的常用方法 （二）">
 <meta property="og:url" content="http://qunqunyang.me/2018/06/20/Object类的常用方法（二）/index.html">
@@ -106,18 +108,22 @@ Object.entries()返回一个数组，其元素是与直接在object上">
 <meta property="og:description" content="背景：
 续上文Object类的常用方法（一）
 上一篇文章介绍了Object.create…等
-5、 Object.entries:Object.entries()方法返回一个给定对象自身可枚举属性的键值对数组，其排列与使用 for…in 循环遍历该对象时返回的顺序一致（区别在于for-in 循环也枚举原型链中的属性）。
 
-Object.entries()返回一个数组，其元素是与直接在object上">
-<meta property="og:updated_time" content="2018-06-20T01:57:50.460Z">
+5、 Object.entries:
+Object.entries()方法返回一个给定对象自身可枚举属性的键值对数组，其排列与使用 for…in 循环遍历该对象时返回的顺序一致（区别在于for-in 循环也枚举原型链中的属性）。
+
+Object.entries()返回一个数组，其元素是与直接在objec">
+<meta property="og:updated_time" content="2018-06-20T11:47:10.084Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Object类的常用方法 （二）">
 <meta name="twitter:description" content="背景：
 续上文Object类的常用方法（一）
 上一篇文章介绍了Object.create…等
-5、 Object.entries:Object.entries()方法返回一个给定对象自身可枚举属性的键值对数组，其排列与使用 for…in 循环遍历该对象时返回的顺序一致（区别在于for-in 循环也枚举原型链中的属性）。
 
-Object.entries()返回一个数组，其元素是与直接在object上">
+5、 Object.entries:
+Object.entries()方法返回一个给定对象自身可枚举属性的键值对数组，其排列与使用 for…in 循环遍历该对象时返回的顺序一致（区别在于for-in 循环也枚举原型链中的属性）。
+
+Object.entries()返回一个数组，其元素是与直接在objec">
 
 
 
@@ -347,7 +353,9 @@ Object.entries()返回一个数组，其元素是与直接在object上">
         <h3 id="背景："><a href="#背景：" class="headerlink" title="背景："></a>背景：</h3><blockquote>
 <p>续上文Object类的常用方法（一）</p>
 <p>上一篇文章介绍了Object.create…等</p>
-<h5 id="5、-Object-entries"><a href="#5、-Object-entries" class="headerlink" title="5、 Object.entries:"></a>5、 Object.entries:</h5><p>Object.entries()方法返回一个给定对象自身可枚举属性的键值对数组，其排列与使用 for…in 循环遍历该对象时返回的顺序一致（区别在于<br>for-in 循环也枚举原型链中的属性）。</p>
+</blockquote>
+<h5 id="5、-Object-entries"><a href="#5、-Object-entries" class="headerlink" title="5、 Object.entries:"></a>5、 Object.entries:</h5><blockquote>
+<p>Object.entries()方法返回一个给定对象自身可枚举属性的键值对数组，其排列与使用 for…in 循环遍历该对象时返回的顺序一致（区别在于<br>for-in 循环也枚举原型链中的属性）。</p>
 </blockquote>
 <p>Object.entries()返回一个数组，其元素是与直接在object上找到的可枚举属性键值对相对应的数组。属性的顺序与通过手动循环对象的属性值所给出的顺序相同。</p>
 <p>参数： Object.entries(obj), 其中 obj 可以返回其可枚举属性的键值对的对象。</p>
@@ -638,7 +646,33 @@ for( var attr in obj ){
 <p>writable: 值是否可以重写。true | false</p>
 <p>enumerable: 目标属性是否可以被枚举。true | false</p>
 <p>configurable: 目标属性是否可以被删除或是否可以再次修改特性 true | false</p>
-<h5 id="8、Object-hasOwnProperty"><a href="#8、Object-hasOwnProperty" class="headerlink" title="8、Object.hasOwnProperty"></a>8、Object.hasOwnProperty</h5></blockquote>
+<h5 id="8、Object-hasOwnProperty（）"><a href="#8、Object-hasOwnProperty（）" class="headerlink" title="8、Object.hasOwnProperty（）"></a>8、Object.hasOwnProperty（）</h5><p>用于知识一个对象自身是否具有指定名称的属性，如果有返回true， 如果没有返回false。</p>
+</blockquote>
+<pre><code>语法 ：object.hasOwnProperty( propertyName )
+propertyName：指定的属性名称
+</code></pre><p>返回值： </p>
+<p>hasOwnProperty（）返回的值是Boolean类型。如果对象Object具有名称为propertyName的属性，则返回true,否则返回false。</p>
+<p>此方法不会检查对象的原型链中是否存在此属性，该属性只有是对象本身的一个成员才会返回true。</p>
+<p>举个例子：</p>
+<pre><code>function isHas(){
+    this.name = &apos;today&apos;,
+    this.week = &apos;wendsday&apos;,
+    this.sayHi = function(){
+        document.writeln(&apos;今天是&apos;+this.name);
+    }
+}
+
+var obj = {
+    mood = &apos;happy&apos;,
+    sayHello = function(){
+        document.writeln(&apos;今天的心情是&apos;+this.mood);
+    }
+}
+</code></pre><p>//使用对象obj覆盖Site本身的prototype属性</p>
+<p>isHas.prototype = obj;</p>
+<p>var h = new isHas();<br>document.writeln(s.hasOwnProperty(‘name’)); //true<br>document.writeln(s.hasOwnProperty(‘sayHi’)); //true</p>
+<p>//以下属性继承自原型链，所以为false<br>document.writeln(s.hasOwnProperty(‘mood’)); //false<br>document.writeln(s.hasOwnProperty(‘sayHello’)); //false</p>
+<p>// 想要查看对象(包括原型链)是否具备指定的属性，可以使用in操作符<br>document.writeln(‘mood’ in s); //true<br>document.writeln(‘sayHello’ in s); //true</p>
 
       
     </div>
@@ -795,7 +829,7 @@ for( var attr in obj ){
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#背景："><span class="nav-number">1.</span> <span class="nav-text">背景：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#5、-Object-entries"><span class="nav-number">1.0.1.</span> <span class="nav-text">5、 Object.entries:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6、-Object-create"><span class="nav-number">1.0.2.</span> <span class="nav-text">6、 Object.create:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7、Object-defineProperty"><span class="nav-number">1.0.3.</span> <span class="nav-text">7、Object.defineProperty</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#8、Object-hasOwnProperty"><span class="nav-number">1.0.4.</span> <span class="nav-text">8、Object.hasOwnProperty</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#背景："><span class="nav-number">1.</span> <span class="nav-text">背景：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#5、-Object-entries"><span class="nav-number">1.0.1.</span> <span class="nav-text">5、 Object.entries:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6、-Object-create"><span class="nav-number">1.0.2.</span> <span class="nav-text">6、 Object.create:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7、Object-defineProperty"><span class="nav-number">1.0.3.</span> <span class="nav-text">7、Object.defineProperty</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#8、Object-hasOwnProperty（）"><span class="nav-number">1.0.4.</span> <span class="nav-text">8、Object.hasOwnProperty（）</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
