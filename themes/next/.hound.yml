@@ -1,11 +1,4 @@
-<<<<<<< HEAD
 javascript:
   enabled: true
   config_file: .jshintrc
   ignore_file: .javascript_ignore
-=======
-javascript:
-  enabled: true
-  config_file: .jshintrc
-  ignore_file: .javascript_ignore
->>>>>>> master

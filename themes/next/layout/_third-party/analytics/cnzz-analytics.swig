@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 {% if theme.cnzz_siteid %}
 
   <div style="display: none;">
@@ -6,12 +5,3 @@
   </div>
 
 {% endif %}
-=======
-{% if theme.cnzz_siteid %}
-
-  <div style="display: none;">
-    <script src="//s95.cnzz.com/z_stat.php?id={{ theme.cnzz_siteid }}&web_id={{ theme.cnzz_siteid }}" language="JavaScript"></script>
-  </div>
-
-{% endif %}
->>>>>>> master

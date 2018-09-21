@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 {
   "curly": true,
   "eqnull": true,
@@ -22,28 +21,3 @@
     "$": true
   }
 }
-=======
-{
-  "curly": true,
-  "eqnull": true,
-  "eqeqeq": true,
-  "undef": true,
-  "newcap": true,
-  "unused": true,
-  "laxcomma": false,
-  "asi": false,
-  "expr": true,
-  "loopfunc": false,
-  "strict": false,
-
-  "globals": {
-    "define": true,
-    "require": true,
-    "it": true,
-    "module": true,
-    "describe": true,
-    "window": true,
-    "$": true
-  }
-}
->>>>>>> master
