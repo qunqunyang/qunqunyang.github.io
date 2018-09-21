@@ -1,2 +1,7 @@
+<<<<<<< HEAD
 source/lib/* linguist-vendored
 scripts/merge.js linguist-vendored
+=======
+source/lib/* linguist-vendored
+scripts/merge.js linguist-vendored
+>>>>>>> master

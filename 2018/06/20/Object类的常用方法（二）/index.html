@@ -93,31 +93,31 @@
 
 
 
-<meta name="description" content="背景：
-续上文Object类的常用方法（一）
-上一篇文章介绍了Object.create…等
-5、 Object.entries:Object.entries()方法返回一个给定对象自身可枚举属性的键值对数组，其排列与使用 for…in 循环遍历该对象时返回的顺序一致（区别在于for-in 循环也枚举原型链中的属性）。
+<meta name="description" content="续上文Object类的常用方法（一）
+上一篇文章介绍了Object.assign(),Object.is()，Object.keys()，Object.values()本篇文章会有点枯燥捏！
 
-Object.entries()返回一个数组，其元素是与直接在object上">
+下面就按顺序排了
+5、 Object.entries:
+Object.entries()方法返回一个给定对象自身可枚举属性的键值对数组，其排列与使用 for…in 循环遍历该对象时返回的顺序一致（区别在">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Object类的常用方法 （二）">
 <meta property="og:url" content="http://qunqunyang.me/2018/06/20/Object类的常用方法（二）/index.html">
 <meta property="og:site_name" content="yangqun">
-<meta property="og:description" content="背景：
-续上文Object类的常用方法（一）
-上一篇文章介绍了Object.create…等
-5、 Object.entries:Object.entries()方法返回一个给定对象自身可枚举属性的键值对数组，其排列与使用 for…in 循环遍历该对象时返回的顺序一致（区别在于for-in 循环也枚举原型链中的属性）。
+<meta property="og:description" content="续上文Object类的常用方法（一）
+上一篇文章介绍了Object.assign(),Object.is()，Object.keys()，Object.values()本篇文章会有点枯燥捏！
 
-Object.entries()返回一个数组，其元素是与直接在object上">
-<meta property="og:updated_time" content="2018-06-20T01:57:50.460Z">
+下面就按顺序排了
+5、 Object.entries:
+Object.entries()方法返回一个给定对象自身可枚举属性的键值对数组，其排列与使用 for…in 循环遍历该对象时返回的顺序一致（区别在">
+<meta property="og:updated_time" content="2018-06-20T12:30:14.674Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Object类的常用方法 （二）">
-<meta name="twitter:description" content="背景：
-续上文Object类的常用方法（一）
-上一篇文章介绍了Object.create…等
-5、 Object.entries:Object.entries()方法返回一个给定对象自身可枚举属性的键值对数组，其排列与使用 for…in 循环遍历该对象时返回的顺序一致（区别在于for-in 循环也枚举原型链中的属性）。
+<meta name="twitter:description" content="续上文Object类的常用方法（一）
+上一篇文章介绍了Object.assign(),Object.is()，Object.keys()，Object.values()本篇文章会有点枯燥捏！
 
-Object.entries()返回一个数组，其元素是与直接在object上">
+下面就按顺序排了
+5、 Object.entries:
+Object.entries()方法返回一个给定对象自身可枚举属性的键值对数组，其排列与使用 for…in 循环遍历该对象时返回的顺序一致（区别在">
 
 
 
@@ -344,15 +344,21 @@ Object.entries()返回一个数组，其元素是与直接在object上">
       
 
       
-        <h3 id="背景："><a href="#背景：" class="headerlink" title="背景："></a>背景：</h3><blockquote>
+        <hr>
+<blockquote>
 <p>续上文Object类的常用方法（一）</p>
-<p>上一篇文章介绍了Object.create…等</p>
-<h5 id="5、-Object-entries"><a href="#5、-Object-entries" class="headerlink" title="5、 Object.entries:"></a>5、 Object.entries:</h5><p>Object.entries()方法返回一个给定对象自身可枚举属性的键值对数组，其排列与使用 for…in 循环遍历该对象时返回的顺序一致（区别在于<br>for-in 循环也枚举原型链中的属性）。</p>
+<p>上一篇文章介绍了Object.assign(),Object.is()，Object.keys()，Object.values()<br>本篇文章会有点枯燥捏！</p>
 </blockquote>
-<p>Object.entries()返回一个数组，其元素是与直接在object上找到的可枚举属性键值对相对应的数组。属性的顺序与通过手动循环对象的属性值所给出的顺序相同。</p>
-<p>参数： Object.entries(obj), 其中 obj 可以返回其可枚举属性的键值对的对象。</p>
-<p>返回值： 给定对象自身可枚举属性的键值对数组。</p>
-<p>举个栗子：</p>
+<p>下面就按顺序排了</p>
+<h5 id="5、-Object-entries"><a href="#5、-Object-entries" class="headerlink" title="5、 Object.entries:"></a>5、 Object.entries:</h5><blockquote>
+<p><code>Object.entries()</code>方法返回一个给定对象自身可枚举属性的键值对数组，其排列与使用 for…in 循环遍历该对象时返回的顺序一致（区别在于 for-in 循环也枚举原型链中的属性）。</p>
+</blockquote>
+<pre><code>Object.entries()返回一个数组，其元素是与直接在object上找到的可枚举属性键值对相对应的数组。属性的顺序与通过手动循环对象的属性值所给出的顺序相同。
+
+参数： Object.entries(obj), 其中 obj 可以返回其可枚举属性的键值对的对象。
+
+返回值： 给定对象自身可枚举属性的键值对数组。
+</code></pre><p>举个栗子：</p>
 <pre><code>const obj = { foo: &apos;bar&apos;, baz: 42 };
 console.log(Object.entries(obj)); // [ [&apos;foo&apos;, &apos;bar&apos;], [&apos;baz&apos;, 42] ]
 
@@ -383,12 +389,12 @@ Object.entries(obj).forEach(([key, value]) =&gt; {
 console.log(`${key} ${value}`); // &quot;a 5&quot;, &quot;b 7&quot;, &quot;c 9&quot;
 });
 </code></pre><h5 id="6、-Object-create"><a href="#6、-Object-create" class="headerlink" title="6、 Object.create:"></a>6、 Object.create:</h5><blockquote>
-<p>方法会使用指定的原型对象及其属性去创建一个新的对象</p>
+<p><code>Object.create()</code> 方法会使用指定的原型对象及其属性去创建一个新的对象</p>
 <p>Object.create(proto[, propertiesObject])</p>
 <p>其中参数proto为一个对象，作为新创建对象的原型</p>
 <p>propertiesObject: 对象，可选参数，为新创建的对象指定属性对象。</p>
 </blockquote>
-<p>注意，使用Object.create()方法创建对象时，如果不是继承一个原有的对象，而是创建一个全新的对象，就要把proto设置为null。</p>
+<p><strong> 注意，使用Object.create()方法创建对象时，如果不是继承一个原有的对象，而是创建一个全新的对象，就要把proto设置为null。</strong></p>
 <p>来看一个简单的例子：</p>
 <pre><code>// 基类
 function Site() {
@@ -418,17 +424,15 @@ tbilu instanceof Itbilu;  // true
 itbilu.create(&apos;IT笔录&apos;, &apos;itbilu.com&apos;);
 itbilu.name;    // &apos;IT笔录&apos;
 itbilu.domain;  // &apos;itbilu.com&apos;
-</code></pre><p>使用 Object.create 的 propertyObject参数</p>
+</code></pre><p>使用 <code>Object.create()</code> 的 propertyObject参数</p>
 <pre><code>var o;
 
 // 创建一个原型为null的空对象
 o = Object.create(null);
 
-
 o = {};
 // 以字面量方式创建的空对象就相当于:
 o = Object.create(Object.prototype);
-
 
 o = Object.create(Object.prototype, {
   // foo会成为所创建对象的数据属性
@@ -452,7 +456,7 @@ o = Object.create(Object.prototype, {
     prop：必需。需定义或修改的属性的名字
     descriptor：必需。目标属性所拥有的特性
 返回值： 传入函数的对象。即第一个参数obj
-</code></pre><p>针对属性，我们可以给这个属性设置一些特性，比如是否只读不可以写；是否可以被for..in或Object.keys()遍历。</p>
+</code></pre><p>针对属性，我们可以给这个属性设置一些特性，比如是否只读不可以写；是否可以被for..in或Object.keys()遍历</p>
 <p>给对象的属性添加特性描述，目前提供两种形式：数据描述和存取器描述。</p>
 <p>数据描述：<br>当修改或者定义对象的某个属性的时候，给这个属性添加一些特性：</p>
 <pre><code>var obj = {
@@ -473,7 +477,7 @@ Object.defineProperty(obj,&quot;newKey&quot;,{
     writable:true | false
 });
 </code></pre><p>数据描述中的属性都是可选的。看一下每个设置的作用。</p>
-<p>value： 属性对应的值,可以使任意类型的值，默认为undefined</p>
+<p>1) value： 属性对应的值,可以使任意类型的值，默认为undefined</p>
 <pre><code>var obj = {};
 //第一种情况，不设置value属性。
 Object.defineProperty(obj,&quot;newKey&quot;,{})
@@ -484,7 +488,7 @@ Object.defineProperty(obj,&quot;newKey&quot;,{
     value： &apos;hello&apos;
 })
 console.log(obj.newKey);   //hello    
-</code></pre><p>writable<br>属性的值是否可以被重写。设置为true可以被重写，设置为false,不可被重写。 默认为false</p>
+</code></pre><p>2) writable<br>    属性的值是否可以被重写。设置为true可以被重写，设置为false,不可被重写。 默认为false</p>
 <pre><code>var obj = {}
 //第一种情况：writable设置为false，不能重写。
 Object.defineProperty(obj,&quot;newKey&quot;,{
@@ -503,8 +507,7 @@ Object.defineProperty(obj,&quot;newKey&quot;,{
 //更改newKey的值
 obj.newKey = &quot;change value&quot;;
 console.log( obj.newKey );  //change value
-</code></pre><p>enumerable</p>
-<p>此属性是否可以被枚举（使用for…in或Object.keys()）。设置为true可以被枚举；设置为false，不能被枚举。默认为false。</p>
+</code></pre><p>3)  enumerable<br>此属性是否可以被枚举（使用for…in或Object.keys()）。设置为true可以被枚举；设置为false，不能被枚举。默认为false。</p>
 <pre><code>var obj = {}
 //第一种情况：enumerable设置为false，不能被枚举。
 Object.defineProperty(obj,&quot;newKey&quot;,{
@@ -528,75 +531,75 @@ Object.defineProperty(obj,&quot;newKey&quot;,{
 for( var attr in obj ){
     console.log( attr );  //newKey
 }
-</code></pre><p>configurable</p>
-<p>是否可以删除目标属性或是否可以再次修改属性的特性（writable, configurable, enumerable）。设置为true可以被删除或可以重新设置特性；设置为false，不能被可以被删除或不可以重新设置特性。默认为false。</p>
-<p>这个属性起到两个作用：</p>
-<ol>
-<li><p>目标属性是否可以使用delete删除</p>
-</li>
-<li><p>目标属性是否可以再次设置特性</p>
-<pre><code>//-----------------测试目标属性是否能被删除------------------------
-var obj = {}
-//第一种情况：configurable设置为false，不能被删除。
-Object.defineProperty(obj,&quot;newKey&quot;,{
-    value:&quot;hello&quot;,
-    writable:false,
-    enumerable:false,
-    configurable:false
-});
-//删除属性
-delete obj.newKey;
-console.log( obj.newKey ); //hello
+</code></pre><p>4)  configurable</p>
+<pre><code>是否可以删除目标属性或是否可以再次修改属性的特性（writable, configurable, enumerable）。设置为true可以被删除或可以重新设置特性；设置为false，不能被可以被删除或不可以重新设置特性。默认为false。
 
-//第二种情况：configurable设置为true，可以被删除。
-Object.defineProperty(obj,&quot;newKey&quot;,{
-    value:&quot;hello&quot;,
-    writable:false,
-    enumerable:false,
-    configurable:true
-});
-//删除属性
-delete obj.newKey;
-console.log( obj.newKey ); //undefined
+这个属性起到两个作用：
 
-//-----------------测试是否可以再次修改特性------------------------
-var obj = {}
-//第一种情况：configurable设置为false，不能再次修改特性。
-Object.defineProperty(obj,&quot;newKey&quot;,{
-    value:&quot;hello&quot;,
-    writable:false,
-    enumerable:false,
-    configurable:false
-});
+1. 目标属性是否可以使用delete删除
 
-//重新修改特性
-Object.defineProperty(obj,&quot;newKey&quot;,{
-    value:&quot;hello&quot;,
-    writable:true,
-    enumerable:true,
-    configurable:true
-});
-console.log( obj.newKey ); //报错：Uncaught TypeError: Cannot redefine property: newKey
+2. 目标属性是否可以再次设置特性
 
-//第二种情况：configurable设置为true，可以再次修改特性。
-Object.defineProperty(obj,&quot;newKey&quot;,{
-    value:&quot;hello&quot;,
-    writable:false,
-    enumerable:false,
-    configurable:true
-});
+    //-----------------测试目标属性是否能被删除------------------------
+    var obj = {}
+    //第一种情况：configurable设置为false，不能被删除。
+    Object.defineProperty(obj,&quot;newKey&quot;,{
+        value:&quot;hello&quot;,
+        writable:false,
+        enumerable:false,
+        configurable:false
+    });
+    //删除属性
+    delete obj.newKey;
+    console.log( obj.newKey ); //hello
 
-//重新修改特性
-Object.defineProperty(obj,&quot;newKey&quot;,{
-    value:&quot;hello&quot;,
-    writable:true,
-    enumerable:true,
-    configurable:true
-});
-console.log( obj.newKey ); //hello
-</code></pre></li>
-</ol>
-<p>除了给新特性的属性设置特性，也可以给已有的属性设置特性。</p>
+    //第二种情况：configurable设置为true，可以被删除。
+    Object.defineProperty(obj,&quot;newKey&quot;,{
+        value:&quot;hello&quot;,
+        writable:false,
+        enumerable:false,
+        configurable:true
+    });
+    //删除属性
+    delete obj.newKey;
+    console.log( obj.newKey ); //undefined
+
+    //-----------------测试是否可以再次修改特性------------------------
+    var obj = {}
+    //第一种情况：configurable设置为false，不能再次修改特性。
+    Object.defineProperty(obj,&quot;newKey&quot;,{
+        value:&quot;hello&quot;,
+        writable:false,
+        enumerable:false,
+        configurable:false
+    });
+
+    //重新修改特性
+    Object.defineProperty(obj,&quot;newKey&quot;,{
+        value:&quot;hello&quot;,
+        writable:true,
+        enumerable:true,
+        configurable:true
+    });
+    console.log( obj.newKey ); //报错：Uncaught TypeError: Cannot redefine property: newKey
+
+    //第二种情况：configurable设置为true，可以再次修改特性。
+    Object.defineProperty(obj,&quot;newKey&quot;,{
+        value:&quot;hello&quot;,
+        writable:false,
+        enumerable:false,
+        configurable:true
+    });
+
+    //重新修改特性
+    Object.defineProperty(obj,&quot;newKey&quot;,{
+        value:&quot;hello&quot;,
+        writable:true,
+        enumerable:true,
+        configurable:true
+    });
+    console.log( obj.newKey ); //hello
+</code></pre><p>除了给新特性的属性设置特性，也可以给已有的属性设置特性。</p>
 <pre><code>//定义对象的时候添加的属性，是可删除、可重写、可枚举的。
 var obj = {
     test:&quot;hello&quot;
@@ -610,18 +613,15 @@ Object.defineProperty(obj,&quot;test&quot;,{
     writable:false
 })
 
-
 //再次改写值
 obj.test = &apos;change value again&apos;;
-
 console.log( obj.test ); //依然是：&apos;change value&apos;
-</code></pre><p>提示： 一旦使用Object.defineProperty给对象添加属性，那么如果不设置属性的特性，那么configrable,enumerable,writable这些值都是默认的false。</p>
+</code></pre><p><strong> 提示： 一旦使用<code>Object.defineProperty()</code>给对象添加属性，那么如果不设置属性的特性，那么configrable,enumerable,writable这些值都是默认的false。</strong></p>
 <pre><code>var obj = {};
 
 定义新属性后，这个属性的特性中，都是默认为false。这就导致了newKey这个是不能重写，不能枚举，不能再次设置特性。
 //
 Object.defineProperty(obj,&apos;newKey&apos;,{
-
 });
 
 //设置值
@@ -634,11 +634,44 @@ for( var attr in obj ){
 }
 </code></pre><p>特性总结：</p>
 <blockquote>
-<p>value: 设置属性的值</p>
-<p>writable: 值是否可以重写。true | false</p>
-<p>enumerable: 目标属性是否可以被枚举。true | false</p>
-<p>configurable: 目标属性是否可以被删除或是否可以再次修改特性 true | false</p>
-<h5 id="8、Object-hasOwnProperty"><a href="#8、Object-hasOwnProperty" class="headerlink" title="8、Object.hasOwnProperty"></a>8、Object.hasOwnProperty</h5></blockquote>
+<p>value: 设置属性的值<br>writable: 值是否可以重写。true | false<br>enumerable: 目标属性是否可以被枚举。true | false<br>configurable: 目标属性是否可以被删除或是否可以再次修改特性 true | false</p>
+<h5 id="8、Object-hasOwnProperty（）"><a href="#8、Object-hasOwnProperty（）" class="headerlink" title="8、Object.hasOwnProperty（）"></a>8、Object.hasOwnProperty（）</h5><p>用于知识一个对象自身是否具有指定名称的属性，如果有返回true， 如果没有返回false。</p>
+</blockquote>
+<pre><code>语法 ：object.hasOwnProperty(propertyName)
+propertyName：指定的属性名称
+返回值： 
+hasOwnProperty（）返回的值是Boolean类型。如果对象Object具有名称为propertyName的属性，则返回true    ,否则返回false。
+</code></pre><p>此方法不会检查对象的原型链中是否存在此属性，该属性只有是对象本身的一个成员才会返回true。</p>
+<p>举个例子：</p>
+<pre><code>function isHas(){
+    this.name = &apos;today&apos;,
+    this.week = &apos;wendsday&apos;,
+    this.sayHi = function(){
+        document.writeln(&apos;今天是&apos;+this.name);
+    }
+}
+
+var obj = {
+    mood = &apos;happy&apos;,
+    sayHello = function(){
+        document.writeln(&apos;今天的心情是&apos;+this.mood);
+    }
+}
+</code></pre><p>//使用对象obj覆盖Site本身的prototype属性</p>
+<pre><code>isHas.prototype = obj;
+
+var h = new isHas();
+document.writeln(s.hasOwnProperty(&apos;name&apos;)); //true
+document.writeln(s.hasOwnProperty(&apos;sayHi&apos;)); //true
+
+//以下属性继承自原型链，所以为false
+document.writeln(s.hasOwnProperty(&apos;mood&apos;)); //false
+document.writeln(s.hasOwnProperty(&apos;sayHello&apos;)); //false
+
+// 想要查看对象(包括原型链)是否具备指定的属性，可以使用in操作符
+document.writeln(&apos;mood&apos; in s); //true
+document.writeln(&apos;sayHello&apos; in s); //true
+</code></pre><p> 完结！ 后续有更新再添加！</p>
 
       
     </div>
@@ -684,6 +717,10 @@ for( var attr in obj ){
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/16/js数组方法大全/" rel="prev" title="js数组方法大全">
+                js数组方法大全 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -756,7 +793,7 @@ for( var attr in obj ){
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-count">21</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -795,7 +832,7 @@ for( var attr in obj ){
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#背景："><span class="nav-number">1.</span> <span class="nav-text">背景：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#5、-Object-entries"><span class="nav-number">1.0.1.</span> <span class="nav-text">5、 Object.entries:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6、-Object-create"><span class="nav-number">1.0.2.</span> <span class="nav-text">6、 Object.create:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7、Object-defineProperty"><span class="nav-number">1.0.3.</span> <span class="nav-text">7、Object.defineProperty</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#8、Object-hasOwnProperty"><span class="nav-number">1.0.4.</span> <span class="nav-text">8、Object.hasOwnProperty</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#5、-Object-entries"><span class="nav-number">1.</span> <span class="nav-text">5、 Object.entries:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6、-Object-create"><span class="nav-number">2.</span> <span class="nav-text">6、 Object.create:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7、Object-defineProperty"><span class="nav-number">3.</span> <span class="nav-text">7、Object.defineProperty</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#8、Object-hasOwnProperty（）"><span class="nav-number">4.</span> <span class="nav-text">8、Object.hasOwnProperty（）</span></a></li></ol></div>
             
 
           </div>
