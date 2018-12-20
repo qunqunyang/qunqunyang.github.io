@@ -433,7 +433,7 @@ body {
 }
 .header-inner {
   margin: 0 auto;
-  padding: 100px 0 70px;
+  padding: 70px 0 10px;
   width: 700px;
 }
 @media (min-width: 1600px) {
@@ -981,12 +981,12 @@ pre .javascript .function {
   position: relative;
   display: inline-block;
   padding: 0 40px;
-  color: #fff;
-  background: #222;
+  color: #072;
+  /* background: #222; */
   border-bottom: none;
 }
 .brand:hover {
-  color: #fff;
+  /* color: #fff; */
 }
 .logo {
   display: inline-block;
@@ -1324,7 +1324,7 @@ pre .javascript .function {
 .posts-expand .post-title-link {
   display: inline-block;
   position: relative;
-  color: #555;
+  color: #259;
   border-bottom: none;
   line-height: 1.2;
   vertical-align: top;
@@ -1336,7 +1336,7 @@ pre .javascript .function {
   height: 2px;
   bottom: 0;
   left: 0;
-  background-color: #000;
+  background-color: #259;
   visibility: hidden;
   -webkit-transform: scaleX(0);
   -moz-transform: scaleX(0);
@@ -1417,7 +1417,7 @@ pre .javascript .function {
 .post-button .btn {
   color: #fff;
   font-size: 14px;
-  background: #222;
+  background: #1c8bd0;
   border-radius: 0;
   line-height: 2;
   margin: 0 4px 8px 4px;
