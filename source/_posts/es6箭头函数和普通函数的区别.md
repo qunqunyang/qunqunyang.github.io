@@ -1,5 +1,8 @@
 ---
 title: es6箭头函数和普通函数的区别
+layout: posts
+categories: 学习笔记
+tags: [es6]
 ---
 
 ### 1、 写法：
