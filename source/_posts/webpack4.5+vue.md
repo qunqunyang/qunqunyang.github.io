@@ -1,5 +1,7 @@
 ---
 title: webpack4.5+vue 踩坑记录
+
+date: 2018/04/08
 ---
 
 ### 1. 最新版本的webpack

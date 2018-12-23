@@ -1,5 +1,7 @@
 ---
 title: 浅谈typeof 和instanceof的区别
+
+date: 2018/05/16
 ---
 
 ####  先介绍下js的基本类型和引用类型
