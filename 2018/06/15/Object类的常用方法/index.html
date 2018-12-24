@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="yangqun" type="application/atom+xml">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1">
+
+
+
+
+
+
+<meta name="description" content="背景： js中对Object的一些操作 对象是值： 成对的名称（字符串）和值（任何值），其中名称通过冒号与值分隔；      一 、创建对象的方法： 字面量形式：  var obj = { a:1， b:2  };   对象实例  var obj = new Object();  构造函数形式 function employee(name,job,born) {     this.name=nam">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Object类的常用方法 （一）">
+<meta property="og:url" content="http://qunqunyang.me/2018/06/15/Object类的常用方法/index.html">
+<meta property="og:site_name" content="yangqun">
+<meta property="og:description" content="背景： js中对Object的一些操作 对象是值： 成对的名称（字符串）和值（任何值），其中名称通过冒号与值分隔；      一 、创建对象的方法： 字面量形式：  var obj = { a:1， b:2  };   对象实例  var obj = new Object();  构造函数形式 function employee(name,job,born) {     this.name=nam">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-06-15T10:17:28.786Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Object类的常用方法 （一）">
+<meta name="twitter:description" content="背景： js中对Object的一些操作 对象是值： 成对的名称（字符串）和值（任何值），其中名称通过冒号与值分隔；      一 、创建对象的方法： 字面量形式：  var obj = { a:1， b:2  };   对象实例  var obj = new Object();  构造函数形式 function employee(name,job,born) {     this.name=nam">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://qunqunyang.me/2018/06/15/Object类的常用方法/">
+
+
+
+
+
+  <title>Object类的常用方法 （一） | yangqun</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">yangqun</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">平凡的人生，不平凡的自己</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://qunqunyang.me/2018/06/15/Object类的常用方法/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="qunqunyang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yangqun">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Object类的常用方法 （一）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-15T18:17:28+08:00">
+                2018-06-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="背景："><a href="#背景：" class="headerlink" title="背景："></a>背景：</h3><blockquote>
+<p>js中对Object的一些操作</p>
+<p>对象是值： 成对的名称（字符串）和值（任何值），其中名称通过冒号与值分隔；    </p>
+</blockquote>
+<h4 id="一-、创建对象的方法："><a href="#一-、创建对象的方法：" class="headerlink" title="一 、创建对象的方法："></a>一 、创建对象的方法：</h4><ol>
+<li><p>字面量形式：</p>
+<p> var obj = {</p>
+<pre><code>a:1，
+b:2
+</code></pre><p> }; </p>
+</li>
+<li><p>对象实例</p>
+<p> var obj = new Object();</p>
+</li>
+<li><p>构造函数形式</p>
+<pre><code>function employee(name,job,born) {
+    this.name=name;
+    this.job=job;
+    this.born=born;
+}
+
+var bill=new employee(&quot;Bill Gates&quot;,&quot;Engineer&quot;,1985);
+
+// employee {name: &quot;Bill Gates&quot;, job: &quot;Engineer&quot;, born: 1985} 
+</code></pre></li>
+</ol>
+<ol>
+<li><p>es6 class模式</p>
+<p> //定义类</p>
+<pre><code>class point = {
+    constructor(x,y){
+        this.x = x;
+        this.y = y;    
+    };
+
+    //定义方法
+    tostring(){
+        return &apos;(&apos;+this.x+&apos;,&apos;+this.y+&apos;)&apos;;
+    }
+
+    multiplication(){
+        return this.x*this.y
+    }
+
+    test(){
+        return &apos;1234567890&apos;
+    }
+}
+
+console.log(point.name)
+//Point （name属性总是返回紧跟在class关键字后面的类名。）
+
+// 实例化并调用（实例化和调用方法同es5相同）
+var x = new Point(5, 6)
+console.log(x.toString(), &apos;相乘结果：&apos; + x.multiplication(), x.test())
+// (5, 6) 相乘结果：30 1231354654
+
+// 快速添加方法到原型上 （如下图，直接可添加到原型）
+Object.assign(Point.prototype, {
+    dosomething() { },
+    toValue() { }
+});
+console.log(Point.prototype)
+</code></pre></li>
+</ol>
+<h4 id="二、Object的常用方法"><a href="#二、Object的常用方法" class="headerlink" title="二、Object的常用方法"></a>二、Object的常用方法</h4><h5 id="1、-Object-assign：-浅拷贝复制"><a href="#1、-Object-assign：-浅拷贝复制" class="headerlink" title="1、 Object.assign：  浅拷贝复制"></a>1、 Object.assign：  浅拷贝复制</h5><blockquote>
+<p>Object.assign()方法用于将所有可枚举属性的值从一个或多个源对象复制到目标对象，它将返回目标对象。 Object.assign(target, …sources)</p>
+</blockquote>
+<p>参数:</p>
+<p>target:目标对象;sources:源对象;返回值:目标对象</p>
+<ol>
+<li><p>复制一个对象，并不会影响原对象</p>
+<pre><code>var obj = {a:1};
+var copy = Object.assign({},obj);
+console.log(copy) // {a:1}
+</code></pre></li>
+<li><p>合并对象</p>
+<pre><code>//object.assign(obj, obj2)  obj2是源对象，obj 是目标对象，返回目标对象
+
+var obj = { a: 1 };
+var obj2={b:2};
+
+console.log(Object.assign(obj,obj2)===obj);  //true，返回目标对象
+console.log(obj);       //{a:1,b:2} obj的值已被更改
+</code></pre></li>
+<li><p>如果目标对象和源对象有相同的属性，则会被覆盖，后面的对象会覆盖掉前面的属性</p>
+</li>
+</ol>
+<pre><code>var obj = { a: 1 };
+var obj1 = {a:2,b:5};
+var obj2={b:2};
+
+Object.assign(obj,obj1,obj2);  //{a:2,b:2}
+</code></pre><ol>
+<li><p>当assign只有一个对象时，则直接返回这个对象，不做任何操作</p>
+</li>
+<li><p>Object.assign是浅拷贝，copy的是一个对象的引用</p>
+<pre><code>var obj1 = { a: 0 , b: { c: 0}};
+var obj2 = Object.assign({}, obj1);
+obj1.b.c=5;
+
+console.log(obj2)       //{a:0,b:{c:5}};
+</code></pre><p> 当我们在改变obj1的值时，并没有想改变obj2，但obj2的值也发生了改变，这违背了我们的想法</p>
+</li>
+<li><p>深拷贝</p>
+<pre><code>var obj = { a: 0 , b: { c: 0}};
+var obj2 = JSON.parse(JSON.stringify(obj));
+obj.a = 4;
+obj.b.c = 4;
+console.log(obj2)   //{ a: 0 , b: { c: 0}}
+</code></pre></li>
+</ol>
+<h5 id="2、-Object-is"><a href="#2、-Object-is" class="headerlink" title="2、 Object.is()"></a>2、 Object.is()</h5><p>判断两个值是否是同一个值 </p>
+<p>参数:  Object.is(value1,value2)</p>
+<p>value1:需要比较的第一个值。 value2:需要比较的第二个值。 返回值:表示两个参数是否相同的Boolean</p>
+<pre><code>Object.is(&apos;haorooms&apos;, &apos;haorooms&apos;);     // true
+Object.is(window, window);   // true
+
+Object.is(&apos;foo&apos;, &apos;bar&apos;);     // false
+Object.is([], []);           // false
+
+var test = { a: 1 };
+Object.is(test, test);       // true
+
+Object.is(null, null);       // true
+
+// 特例
+Object.is(0, -0);            // false
+Object.is(-0, -0);           // true
+Object.is(NaN, 0/0);         // true    
+</code></pre><h5 id="3、-Object-keys"><a href="#3、-Object-keys" class="headerlink" title="3、 Object.keys()"></a>3、 Object.keys()</h5><blockquote>
+<p>这个方法会返回一个由给定对象的自身可枚举属性组成的数组，数组中属性名的排列顺序和使用 for…in 循环遍历该对象时返回的顺序一致 （两者的主要区别是 一个 for-in 循环还会枚举其原型链上的属性）。</p>
+</blockquote>
+<pre><code>1）数组对象
+    var arr=[1,2,3];            
+    Object.keys(arr)         //  [&quot;0&quot;, &quot;1&quot;, &quot;2”]
+
+2） object对象
+    var obj = { foo: &quot;bar&quot;, baz: 42 };
+    Object.keys(obj)        //  [&quot;foo&quot;, &quot;baz”]
+
+(3)类数组，对象
+
+    var obj = { 0 : &quot;a&quot;, 1 : &quot;b&quot;, 2 : &quot;c”};
+    Object.keys(obj)       // [&quot;0&quot;, &quot;1&quot;, &quot;2&quot;] 
+</code></pre><h5 id="4、-Object-values"><a href="#4、-Object-values" class="headerlink" title="4、 Object.values()"></a>4、 Object.values()</h5><blockquote>
+<p>方法返回一个给定对象自己的所有可枚举属性值的数组，值的顺序与使用for..in循环相同，返回的对象的value值，与Object.key()相反</p>
+</blockquote>
+<pre><code>var obj = {a:1,b:2,c:3};
+console.log(Object.values(obj))   //  [1, 2, 3]
+
+var obj ={0:&apos;a&apos;,1:&apos;b&apos;,2:&apos;c&apos;};
+console.log(Object.values(obj)).       //  a,b,c
+
+var obj={100:&apos;a&apos;,10:&apos;b&apos;,1:&apos;1&apos;};
+console.log(Object.values(obj)).   // [&quot;1&quot;, &quot;b&quot;, &quot;a&quot;]
+</code></pre><h5 id="待更新："><a href="#待更新：" class="headerlink" title="待更新："></a>待更新：</h5><h5 id="5、-Object-entries"><a href="#5、-Object-entries" class="headerlink" title="5、 Object.entries:"></a>5、 Object.entries:</h5><h5 id="6、-Object-create"><a href="#6、-Object-create" class="headerlink" title="6、 Object.create:"></a>6、 Object.create:</h5><h5 id="7、-Object-defineProperties"><a href="#7、-Object-defineProperties" class="headerlink" title="7、 Object.defineProperties"></a>7、 Object.defineProperties</h5><h5 id="8、Object-defineProperty"><a href="#8、Object-defineProperty" class="headerlink" title="8、Object.defineProperty"></a>8、Object.defineProperty</h5><h5 id="9、Object-hasOwnProperty"><a href="#9、Object-hasOwnProperty" class="headerlink" title="9、Object.hasOwnProperty"></a>9、Object.hasOwnProperty</h5><p>其他不常用方法：</p>
+<pre><code>1、Object.freeze() 方法可以冻结一个对象，冻结指的是不能向这个对象添加新的属性，不能修改其已有属性的值，不能删除已有属性，以及不能修改该对象已有属性的可枚举性、可配置性、可写性。也就是说，这个对象永远是不可变的。该方法返回被冻结的对象。
+
+2、Object.isFrozen() 方法判断一个对象是否被冻结（frozen）。
+
+3、Object.isExtensible() 方法判断一个对象是否是可扩展的（是否可以在它上面添加新的属性）。
+
+4、Object.isSealed() 方法判断一个对象是否是密封的（sealed）。
+
+5、Object.seal() 方法可以让一个对象密封，并返回被密封后的对象。密封对象是指那些不能添加新的属性，不能删除已有属性，以及不能修改已有属性的可枚举性、可配置性、可写性，但可能可以修改已有属性的值的对象。
+</code></pre>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/06/11/js的基本类型和引用类型/" rel="next" title="js的基本类型和引用类型">
+                <i class="fa fa-chevron-left"></i> js的基本类型和引用类型
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/06/20/Object类的常用方法（二）/" rel="prev" title="Object类的常用方法 （二）">
+                Object类的常用方法 （二） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="qunqunyang">
+          <p class="site-author-name" itemprop="name">qunqunyang</p>
+           
+              <p class="site-description motion-element" itemprop="description">过好每一天。</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">21</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#背景："><span class="nav-number">1.</span> <span class="nav-text">背景：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#一-、创建对象的方法："><span class="nav-number">1.1.</span> <span class="nav-text">一 、创建对象的方法：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、Object的常用方法"><span class="nav-number">1.2.</span> <span class="nav-text">二、Object的常用方法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1、-Object-assign：-浅拷贝复制"><span class="nav-number">1.2.1.</span> <span class="nav-text">1、 Object.assign：  浅拷贝复制</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2、-Object-is"><span class="nav-number">1.2.2.</span> <span class="nav-text">2、 Object.is()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3、-Object-keys"><span class="nav-number">1.2.3.</span> <span class="nav-text">3、 Object.keys()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4、-Object-values"><span class="nav-number">1.2.4.</span> <span class="nav-text">4、 Object.values()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#待更新："><span class="nav-number">1.2.5.</span> <span class="nav-text">待更新：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5、-Object-entries"><span class="nav-number">1.2.6.</span> <span class="nav-text">5、 Object.entries:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6、-Object-create"><span class="nav-number">1.2.7.</span> <span class="nav-text">6、 Object.create:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7、-Object-defineProperties"><span class="nav-number">1.2.8.</span> <span class="nav-text">7、 Object.defineProperties</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#8、Object-defineProperty"><span class="nav-number">1.2.9.</span> <span class="nav-text">8、Object.defineProperty</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#9、Object-hasOwnProperty"><span class="nav-number">1.2.10.</span> <span class="nav-text">9、Object.hasOwnProperty</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">qunqunyang</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

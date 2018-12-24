@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="yangqun" type="application/atom+xml">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1">
+
+
+
+
+
+
+<meta name="description" content="续上文Object类的常用方法（一） 上一篇文章介绍了Object.assign(),Object.is()，Object.keys()，Object.values()本篇文章会有点枯燥捏！  下面就按顺序排了 5、 Object.entries: Object.entries()方法返回一个给定对象自身可枚举属性的键值对数组，其排列与使用 for…in 循环遍历该对象时返回的顺序一致（区别在">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Object类的常用方法 （二）">
+<meta property="og:url" content="http://qunqunyang.me/2018/06/20/Object类的常用方法（二）/index.html">
+<meta property="og:site_name" content="yangqun">
+<meta property="og:description" content="续上文Object类的常用方法（一） 上一篇文章介绍了Object.assign(),Object.is()，Object.keys()，Object.values()本篇文章会有点枯燥捏！  下面就按顺序排了 5、 Object.entries: Object.entries()方法返回一个给定对象自身可枚举属性的键值对数组，其排列与使用 for…in 循环遍历该对象时返回的顺序一致（区别在">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-06-20T12:30:14.674Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Object类的常用方法 （二）">
+<meta name="twitter:description" content="续上文Object类的常用方法（一） 上一篇文章介绍了Object.assign(),Object.is()，Object.keys()，Object.values()本篇文章会有点枯燥捏！  下面就按顺序排了 5、 Object.entries: Object.entries()方法返回一个给定对象自身可枚举属性的键值对数组，其排列与使用 for…in 循环遍历该对象时返回的顺序一致（区别在">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://qunqunyang.me/2018/06/20/Object类的常用方法（二）/">
+
+
+
+
+
+  <title>Object类的常用方法 （二） | yangqun</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">yangqun</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">平凡的人生，不平凡的自己</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://qunqunyang.me/2018/06/20/Object类的常用方法（二）/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="qunqunyang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yangqun">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Object类的常用方法 （二）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-20T09:57:50+08:00">
+                2018-06-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <hr>
+<blockquote>
+<p>续上文Object类的常用方法（一）</p>
+<p>上一篇文章介绍了Object.assign(),Object.is()，Object.keys()，Object.values()<br>本篇文章会有点枯燥捏！</p>
+</blockquote>
+<p>下面就按顺序排了</p>
+<h5 id="5、-Object-entries"><a href="#5、-Object-entries" class="headerlink" title="5、 Object.entries:"></a>5、 Object.entries:</h5><blockquote>
+<p><code>Object.entries()</code>方法返回一个给定对象自身可枚举属性的键值对数组，其排列与使用 for…in 循环遍历该对象时返回的顺序一致（区别在于 for-in 循环也枚举原型链中的属性）。</p>
+</blockquote>
+<pre><code>Object.entries()返回一个数组，其元素是与直接在object上找到的可枚举属性键值对相对应的数组。属性的顺序与通过手动循环对象的属性值所给出的顺序相同。
+
+参数： Object.entries(obj), 其中 obj 可以返回其可枚举属性的键值对的对象。
+
+返回值： 给定对象自身可枚举属性的键值对数组。
+</code></pre><p>举个栗子：</p>
+<pre><code>const obj = { foo: &apos;bar&apos;, baz: 42 };
+console.log(Object.entries(obj)); // [ [&apos;foo&apos;, &apos;bar&apos;], [&apos;baz&apos;, 42] ]
+
+// array like object
+const obj = { 0: &apos;a&apos;, 1: &apos;b&apos;, 2: &apos;c&apos; };
+console.log(Object.entries(obj)); // [ [&apos;0&apos;, &apos;a&apos;], [&apos;1&apos;, &apos;b&apos;], [&apos;2&apos;, &apos;c&apos;] ]
+
+// array like object with random key ordering
+const anObj = { 100: &apos;a&apos;, 2: &apos;b&apos;, 7: &apos;c&apos; };
+console.log(Object.entries(anObj)); // [ [&apos;2&apos;, &apos;b&apos;], [&apos;7&apos;, &apos;c&apos;], [&apos;100&apos;, &apos;a&apos;] ]
+
+// getFoo is property which isn&apos;t enumerable
+const myObj = Object.create({}, { getFoo: { value() { return this.foo; } } });
+myObj.foo = &apos;bar&apos;;
+console.log(Object.entries(myObj)); // [ [&apos;foo&apos;, &apos;bar&apos;] ]
+
+// non-object argument will be coerced to an object
+console.log(Object.entries(&apos;foo&apos;)); // [ [&apos;0&apos;, &apos;f&apos;], [&apos;1&apos;, &apos;o&apos;], [&apos;2&apos;, &apos;o&apos;] ]
+
+// iterate through key-value gracefully
+const obj = { a: 5, b: 7, c: 9 };
+for (const [key, value] of Object.entries(obj)) {
+  console.log(`${key} ${value}`); // &quot;a 5&quot;, &quot;b 7&quot;, &quot;c 9&quot;
+}
+
+// Or, using array extras
+Object.entries(obj).forEach(([key, value]) =&gt; {
+console.log(`${key} ${value}`); // &quot;a 5&quot;, &quot;b 7&quot;, &quot;c 9&quot;
+});
+</code></pre><h5 id="6、-Object-create"><a href="#6、-Object-create" class="headerlink" title="6、 Object.create:"></a>6、 Object.create:</h5><blockquote>
+<p><code>Object.create()</code> 方法会使用指定的原型对象及其属性去创建一个新的对象</p>
+<p>Object.create(proto[, propertiesObject])</p>
+<p>其中参数proto为一个对象，作为新创建对象的原型</p>
+<p>propertiesObject: 对象，可选参数，为新创建的对象指定属性对象。</p>
+</blockquote>
+<p><strong> 注意，使用Object.create()方法创建对象时，如果不是继承一个原有的对象，而是创建一个全新的对象，就要把proto设置为null。</strong></p>
+<p>来看一个简单的例子：</p>
+<pre><code>// 基类
+function Site() {
+  this.name = &apos;Site&apos;;
+  this.domain = &apos;domain&apos;;
+}
+
+Site.prototype.create = function(name, domain) {
+  this.name = name;
+  this.domain = domain;
+};
+
+// 子类
+function Itbilu() {
+  Site.call(this); //调用基类的构造函数
+}
+
+// 继承父类
+Itbilu.prototype = Object.create(Site.prototype);
+
+// 创建类实例
+var itbilu = new Itbilu();
+
+itbilu instanceof Site;  // true
+tbilu instanceof Itbilu;  // true
+
+itbilu.create(&apos;IT笔录&apos;, &apos;itbilu.com&apos;);
+itbilu.name;    // &apos;IT笔录&apos;
+itbilu.domain;  // &apos;itbilu.com&apos;
+</code></pre><p>使用 <code>Object.create()</code> 的 propertyObject参数</p>
+<pre><code>var o;
+
+// 创建一个原型为null的空对象
+o = Object.create(null);
+
+o = {};
+// 以字面量方式创建的空对象就相当于:
+o = Object.create(Object.prototype);
+
+o = Object.create(Object.prototype, {
+  // foo会成为所创建对象的数据属性
+  foo: { 
+    writable:true,
+    configurable:true,
+    value: &quot;hello&quot; 
+  },
+  // bar会成为所创建对象的访问器属性
+  bar: {
+    configurable: false,
+    get: function() { return 10 },
+    set: function(value) {
+      console.log(&quot;Setting `o.bar` to&quot;, value);
+    }
+  }
+});
+</code></pre><h5 id="7、Object-defineProperty"><a href="#7、Object-defineProperty" class="headerlink" title="7、Object.defineProperty"></a>7、Object.defineProperty</h5><pre><code>语法： Object.defineProperty(obj, prop, descriptor)
+参数： 
+    obj：必需。目标对象 
+    prop：必需。需定义或修改的属性的名字
+    descriptor：必需。目标属性所拥有的特性
+返回值： 传入函数的对象。即第一个参数obj
+</code></pre><p>针对属性，我们可以给这个属性设置一些特性，比如是否只读不可以写；是否可以被for..in或Object.keys()遍历</p>
+<p>给对象的属性添加特性描述，目前提供两种形式：数据描述和存取器描述。</p>
+<p>数据描述：<br>当修改或者定义对象的某个属性的时候，给这个属性添加一些特性：</p>
+<pre><code>var obj = {
+    test:&quot;hello&quot;
+}
+//对象已有的属性添加特性描述
+Object.defineProperty(obj,&quot;test&quot;,{
+    configurable:true | false,
+    enumerable:true | false,
+    value:任意类型的值,
+    writable:true | false
+});
+//对象新添加的属性的特性描述
+Object.defineProperty(obj,&quot;newKey&quot;,{
+    configurable:true | false,
+    enumerable:true | false,
+    value:任意类型的值,
+    writable:true | false
+});
+</code></pre><p>数据描述中的属性都是可选的。看一下每个设置的作用。</p>
+<p>1) value： 属性对应的值,可以使任意类型的值，默认为undefined</p>
+<pre><code>var obj = {};
+//第一种情况，不设置value属性。
+Object.defineProperty(obj,&quot;newKey&quot;,{})
+console.log(obj.newKey);   //undefined    
+//第二种 设置value属性
+
+Object.defineProperty(obj,&quot;newKey&quot;,{
+    value： &apos;hello&apos;
+})
+console.log(obj.newKey);   //hello    
+</code></pre><p>2) writable<br>    属性的值是否可以被重写。设置为true可以被重写，设置为false,不可被重写。 默认为false</p>
+<pre><code>var obj = {}
+//第一种情况：writable设置为false，不能重写。
+Object.defineProperty(obj,&quot;newKey&quot;,{
+    value:&quot;hello&quot;,
+    writable:false
+});
+//更改newKey的值
+obj.newKey = &quot;change value&quot;;
+console.log( obj.newKey );  //hello
+
+//第二种情况：writable设置为true，可以重写
+Object.defineProperty(obj,&quot;newKey&quot;,{
+    value:&quot;hello&quot;,
+    writable:true
+});
+//更改newKey的值
+obj.newKey = &quot;change value&quot;;
+console.log( obj.newKey );  //change value
+</code></pre><p>3)  enumerable<br>此属性是否可以被枚举（使用for…in或Object.keys()）。设置为true可以被枚举；设置为false，不能被枚举。默认为false。</p>
+<pre><code>var obj = {}
+//第一种情况：enumerable设置为false，不能被枚举。
+Object.defineProperty(obj,&quot;newKey&quot;,{
+    value:&quot;hello&quot;,
+    writable:false,
+    enumerable:false
+});
+
+//枚举对象的属性
+for( var attr in obj ){
+    console.log( attr );  
+}
+//第二种情况：enumerable设置为true，可以被枚举。
+Object.defineProperty(obj,&quot;newKey&quot;,{
+    value:&quot;hello&quot;,
+    writable:false,
+    enumerable:true
+});
+
+//枚举对象的属性
+for( var attr in obj ){
+    console.log( attr );  //newKey
+}
+</code></pre><p>4)  configurable</p>
+<pre><code>是否可以删除目标属性或是否可以再次修改属性的特性（writable, configurable, enumerable）。设置为true可以被删除或可以重新设置特性；设置为false，不能被可以被删除或不可以重新设置特性。默认为false。
+
+这个属性起到两个作用：
+
+1. 目标属性是否可以使用delete删除
+
+2. 目标属性是否可以再次设置特性
+
+    //-----------------测试目标属性是否能被删除------------------------
+    var obj = {}
+    //第一种情况：configurable设置为false，不能被删除。
+    Object.defineProperty(obj,&quot;newKey&quot;,{
+        value:&quot;hello&quot;,
+        writable:false,
+        enumerable:false,
+        configurable:false
+    });
+    //删除属性
+    delete obj.newKey;
+    console.log( obj.newKey ); //hello
+
+    //第二种情况：configurable设置为true，可以被删除。
+    Object.defineProperty(obj,&quot;newKey&quot;,{
+        value:&quot;hello&quot;,
+        writable:false,
+        enumerable:false,
+        configurable:true
+    });
+    //删除属性
+    delete obj.newKey;
+    console.log( obj.newKey ); //undefined
+
+    //-----------------测试是否可以再次修改特性------------------------
+    var obj = {}
+    //第一种情况：configurable设置为false，不能再次修改特性。
+    Object.defineProperty(obj,&quot;newKey&quot;,{
+        value:&quot;hello&quot;,
+        writable:false,
+        enumerable:false,
+        configurable:false
+    });
+
+    //重新修改特性
+    Object.defineProperty(obj,&quot;newKey&quot;,{
+        value:&quot;hello&quot;,
+        writable:true,
+        enumerable:true,
+        configurable:true
+    });
+    console.log( obj.newKey ); //报错：Uncaught TypeError: Cannot redefine property: newKey
+
+    //第二种情况：configurable设置为true，可以再次修改特性。
+    Object.defineProperty(obj,&quot;newKey&quot;,{
+        value:&quot;hello&quot;,
+        writable:false,
+        enumerable:false,
+        configurable:true
+    });
+
+    //重新修改特性
+    Object.defineProperty(obj,&quot;newKey&quot;,{
+        value:&quot;hello&quot;,
+        writable:true,
+        enumerable:true,
+        configurable:true
+    });
+    console.log( obj.newKey ); //hello
+</code></pre><p>除了给新特性的属性设置特性，也可以给已有的属性设置特性。</p>
+<pre><code>//定义对象的时候添加的属性，是可删除、可重写、可枚举的。
+var obj = {
+    test:&quot;hello&quot;
+}
+//改写值
+obj.test = &apos;change value&apos;;
+
+console.log( obj.test ); //&apos;change value&apos;
+
+Object.defineProperty(obj,&quot;test&quot;,{
+    writable:false
+})
+
+//再次改写值
+obj.test = &apos;change value again&apos;;
+console.log( obj.test ); //依然是：&apos;change value&apos;
+</code></pre><p><strong> 提示： 一旦使用<code>Object.defineProperty()</code>给对象添加属性，那么如果不设置属性的特性，那么configrable,enumerable,writable这些值都是默认的false。</strong></p>
+<pre><code>var obj = {};
+
+定义新属性后，这个属性的特性中，都是默认为false。这就导致了newKey这个是不能重写，不能枚举，不能再次设置特性。
+//
+Object.defineProperty(obj,&apos;newKey&apos;,{
+});
+
+//设置值
+obj.newKey = &apos;hello&apos;;
+console.log(obj.newKey);  //undefined
+
+//枚举
+for( var attr in obj ){
+    console.log(attr);
+}
+</code></pre><p>特性总结：</p>
+<blockquote>
+<p>value: 设置属性的值<br>writable: 值是否可以重写。true | false<br>enumerable: 目标属性是否可以被枚举。true | false<br>configurable: 目标属性是否可以被删除或是否可以再次修改特性 true | false</p>
+<h5 id="8、Object-hasOwnProperty（）"><a href="#8、Object-hasOwnProperty（）" class="headerlink" title="8、Object.hasOwnProperty（）"></a>8、Object.hasOwnProperty（）</h5><p>用于知识一个对象自身是否具有指定名称的属性，如果有返回true， 如果没有返回false。</p>
+</blockquote>
+<pre><code>语法 ：object.hasOwnProperty(propertyName)
+propertyName：指定的属性名称
+返回值： 
+hasOwnProperty（）返回的值是Boolean类型。如果对象Object具有名称为propertyName的属性，则返回true    ,否则返回false。
+</code></pre><p>此方法不会检查对象的原型链中是否存在此属性，该属性只有是对象本身的一个成员才会返回true。</p>
+<p>举个例子：</p>
+<pre><code>function isHas(){
+    this.name = &apos;today&apos;,
+    this.week = &apos;wendsday&apos;,
+    this.sayHi = function(){
+        document.writeln(&apos;今天是&apos;+this.name);
+    }
+}
+
+var obj = {
+    mood = &apos;happy&apos;,
+    sayHello = function(){
+        document.writeln(&apos;今天的心情是&apos;+this.mood);
+    }
+}
+</code></pre><p>//使用对象obj覆盖Site本身的prototype属性</p>
+<pre><code>isHas.prototype = obj;
+
+var h = new isHas();
+document.writeln(s.hasOwnProperty(&apos;name&apos;)); //true
+document.writeln(s.hasOwnProperty(&apos;sayHi&apos;)); //true
+
+//以下属性继承自原型链，所以为false
+document.writeln(s.hasOwnProperty(&apos;mood&apos;)); //false
+document.writeln(s.hasOwnProperty(&apos;sayHello&apos;)); //false
+
+// 想要查看对象(包括原型链)是否具备指定的属性，可以使用in操作符
+document.writeln(&apos;mood&apos; in s); //true
+document.writeln(&apos;sayHello&apos; in s); //true
+</code></pre><p> 完结！ 后续有更新再添加！</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/06/15/Object类的常用方法/" rel="next" title="Object类的常用方法 （一）">
+                <i class="fa fa-chevron-left"></i> Object类的常用方法 （一）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/16/js数组方法大全/" rel="prev" title="js数组方法大全">
+                js数组方法大全 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="qunqunyang">
+          <p class="site-author-name" itemprop="name">qunqunyang</p>
+           
+              <p class="site-description motion-element" itemprop="description">过好每一天。</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">21</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#5、-Object-entries"><span class="nav-number">1.</span> <span class="nav-text">5、 Object.entries:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6、-Object-create"><span class="nav-number">2.</span> <span class="nav-text">6、 Object.create:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7、Object-defineProperty"><span class="nav-number">3.</span> <span class="nav-text">7、Object.defineProperty</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#8、Object-hasOwnProperty（）"><span class="nav-number">4.</span> <span class="nav-text">8、Object.hasOwnProperty（）</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">qunqunyang</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
