@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="yangqun" type="application/atom+xml">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1">
+
+
+
+
+
+
+<meta name="description" content="先介绍下js的基本类型和引用类型基本类型： Null,Undefined,Boolean ,Number和String 引用类型：  Object、Array、RegExp、Date、Function typeof和instanceof相同点： 都是用来判断一个变量是什么类型的。 区别：typeof是一元运算放在一个运算数之前可以是任意类型。 typeof 一般只能返回以下几种类型：Number,">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浅谈typeof 和instanceof的区别">
+<meta property="og:url" content="http://qunqunyang.me/2018/12/24/浅谈 typeof 和 instanceof的区别/index.html">
+<meta property="og:site_name" content="yangqun">
+<meta property="og:description" content="先介绍下js的基本类型和引用类型基本类型： Null,Undefined,Boolean ,Number和String 引用类型：  Object、Array、RegExp、Date、Function typeof和instanceof相同点： 都是用来判断一个变量是什么类型的。 区别：typeof是一元运算放在一个运算数之前可以是任意类型。 typeof 一般只能返回以下几种类型：Number,">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://i.imgur.com/X44Z17j.png">
+<meta property="og:updated_time" content="2018-12-24T04:56:14.384Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="浅谈typeof 和instanceof的区别">
+<meta name="twitter:description" content="先介绍下js的基本类型和引用类型基本类型： Null,Undefined,Boolean ,Number和String 引用类型：  Object、Array、RegExp、Date、Function typeof和instanceof相同点： 都是用来判断一个变量是什么类型的。 区别：typeof是一元运算放在一个运算数之前可以是任意类型。 typeof 一般只能返回以下几种类型：Number,">
+<meta name="twitter:image" content="https://i.imgur.com/X44Z17j.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://qunqunyang.me/2018/12/24/浅谈 typeof 和 instanceof的区别/">
+
+
+
+
+
+  <title>浅谈typeof 和instanceof的区别 | yangqun</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">yangqun</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">平凡的人生，不平凡的自己</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://qunqunyang.me/2018/12/24/浅谈 typeof 和 instanceof的区别/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="qunqunyang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yangqun">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">浅谈typeof 和instanceof的区别</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-24T12:56:14+08:00">
+                2018-12-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="先介绍下js的基本类型和引用类型"><a href="#先介绍下js的基本类型和引用类型" class="headerlink" title="先介绍下js的基本类型和引用类型"></a>先介绍下js的基本类型和引用类型</h4><p>基本类型： Null,Undefined,Boolean ,Number和String</p>
+<p>引用类型：  Object、Array、RegExp、Date、Function</p>
+<h4 id="typeof和instanceof"><a href="#typeof和instanceof" class="headerlink" title="typeof和instanceof"></a>typeof和instanceof</h4><p>相同点： 都是用来判断一个变量是什么类型的。</p>
+<p>区别：<br>typeof是一元运算放在一个运算数之前可以是任意类型。</p>
+<p>typeof 一般只能返回以下几种类型：Number,String,Boolean,Function, Object,Null,Undefined. Symbol </p>
+<pre><code>我们可以使用typeof 来判断一个变量是否存在，如if(typeof a !== &apos;undefined&apos;){alert(&quot;a&quot;)}; 
+最好不要使用if(a) 如果a不存在会报错。
+对于array和null等特殊对象使用typeof 都会返回object。
+</code></pre><p>判断一个变量的类型常常会用typeof，在使用typeof运算符时采用引用类型存储值会出现一个问题，无论引用的是什么类型的对象它都会返回object。</p>
+<pre><code>let s = new String(&apos;abc&apos;);
+typeof s === &apos;object&apos;// true
+s instanceof String // true
+</code></pre><p>此时就需要用到instanceof 来判断。</p>
+<h4 id="typeof的原理："><a href="#typeof的原理：" class="headerlink" title="typeof的原理："></a>typeof的原理：</h4><p>我们可以想想js在底层是怎么存储数据的类型信息呢。js的变量的底层实现。</p>
+<p>其实：js在底层存储变量的时候。会在变量的机器码的低位1-3位存储其类型信息。</p>
+<pre><code>000 对象
+010 浮点数
+100 字符串
+110 布尔
+1 整数
+</code></pre><p>但是对与null和undefined来说，这两个值的存储信息是有点特殊的。</p>
+<pre><code>null 所有机器码均为0
+undefined: 用-2^30 整数来表示。
+</code></pre><p>所以判断 typeof null的时候就出现问题了。因为null的机器码，因此就被当作了对象来对待。</p>
+<p>如果用instanceof 来判断的话。</p>
+<pre><code>null instanceof null   //TypeError: Right-hand side of &apos;instanceof&apos; is not an object
+</code></pre><p>还有一个判断类型的方法</p>
+<pre><code>Object.prototype.toString.call(1) //&quot;[object, Number]&quot;
+其他类型以此类推
+</code></pre><h4 id="instanceof的原理"><a href="#instanceof的原理" class="headerlink" title="instanceof的原理"></a>instanceof的原理</h4><p>下面介绍 instanceof<br>instanceof 主要是判断一个实例是否属于某种类型。</p>
+<p>1.</p>
+<pre><code>let person  = function(){}
+let nichol = new person();
+nichol instanceof person  //true
+</code></pre><p>2.</p>
+<pre><code>let person = function(){}
+let person_per = function(){}
+person_per.prototype = new peroson()
+
+let nichol = new  person_per();
+nichol instanceof person; //true
+nichol instanceof person_per ;  //true 
+</code></pre><p>这是 instanceof 的用法，但是 instanceof 的原理是什么呢？根据 ECMAScript 语言规范，我梳理了一下大概的思路，然后整理了一段代码如下</p>
+<pre><code>function new_instance_of(leftVaule, rightVaule) {
+    let rightProto = rightVaule.prototype; // 取右表达式的 prototype 值
+    leftVaule = leftVaule.__proto__; // 取左表达式的__proto__值
+    while (true) {
+        if (leftVaule === null) {
+            return false;
+        }
+        if (leftVaule === rightProto) {
+            return true;
+        }
+        leftVaule = leftVaule.__proto__
+    }
+}
+</code></pre><p>instanceof的实现原理大致就是只要右侧变量的prototype在左侧变量的原型链上即可。</p>
+<p>因此 instanceof在查找的过程中会遍历左侧的原型链，直到找到右侧变量的prototype,如果查找失败就会返回false,告诉我们左侧变量并非是右侧变量的实例、</p>
+<p>举个栗子：</p>
+<pre><code>function foo(){
+
+}
+function instanceof Object //true
+function instanceof function //true
+Object instanceof Object //true
+foo instanceof Object //true
+foo instanceof foo //false
+foo instanceof function //true
+</code></pre><p>下面我们来一一解释其结果为什么这样：<br>这就涉及到javascript的继承原理<br>关于原型继承的原理，我简单用一张图来表示<br><img src="https://i.imgur.com/X44Z17j.png" alt=""></p>
+<p>每个javascript对象都有一个隐式的<em>proto</em> 原型属性。而显示属性是prototype, 只有object.prototype.<em>proto</em>属性在未修改的情况下为null值。</p>
+<p>根据图上的原理，我们来梳理上面提到的几个有趣的 instanceof 使用的例子。</p>
+<ol>
+<li><p>object instanceof object</p>
+<p>  由图可知，Object的prototype属性是Object.prototype,而由于Object本身是一个函数，由function所创建。</p>
+<p>  所有Object.<em>proto</em>的值是Function.prototype,而Function.prototype的<em>proto</em>属性是Object.prorotype，</p>
+<p>  所有可能判断出 object instanceof object 的结果是true.</p>
+<pre><code>leftValue = Object._proto_ = Function.prototype;
+
+rightValue = Object.prototype
+
+//第一次判断
+
+leftValue != rightValue
+
+leftValue = Function.prototype._proto_ = Object._prototype
+
+//第二次判断
+
+leftValue = rightValue
+</code></pre></li>
+</ol>
+<p>Function instanceof Function和 Function instanceof Object的运行过程与Object instanceof Object类似。故不再详说</p>
+<ol>
+<li><p>Foo instanceof Foo</p>
+<p> Foo函数的prototype 属性是Foo.prototype, 而foo的<em>proto</em>属性是Function.prototype,</p>
+<p> 由图可知，Foo的原型链上并没有Foo.prototype,因此Foo instanceof Foo也就返回false;</p>
+<p> 我们用代码简单的表示一下：</p>
+<pre><code>leftValue = Foo, rightValue = Foo;
+leftValue = Foo._proto = function.prototype;
+rightValue = Foo.prototype;
+//第一次判断
+leftValue != rightValue;
+leftValue = Function.prototype._proto_ = Object.prototype
+//第二次判断
+leftValue != rightValue;
+leftValue = Object.prototype　＝null
+//第三次判断
+leftValue = null;
+</code></pre></li>
+<li><p>Foo instanceof Object</p>
+<pre><code>leftValue = Foo, rightValue = Object
+
+leftValue = Foo.__proto__ = Function.prototype
+rightValue = Object.prototype
+// 第一次判断
+leftValue != rightValue
+leftValue = Function.prototype.__proto__ = Object.prototype
+// 第二次判断
+leftValue === rightValue
+// 返回 true
+</code></pre></li>
+<li><p>Foo instanceof Function</p>
+<pre><code>leftValue = Foo, rightValue = Function
+leftValue = Foo.__proto__ = Function.prototype
+rightValue = Function.prototype
+// 第一次判断
+leftValue === rightValue
+// 返回 true
+</code></pre></li>
+</ol>
+<p>总结来说：</p>
+<p>我们使用typeof　来判断基本类型是OK的。不过需要注意当用typeof 来判断null类型的问题。如果想要判断一个对象的具体类型可以用instanceof 。但是instanceof　可能也判断不准确，例如一个数组，可以被instanceof　判断为Object。</p>
+<p>所以我们想要比较准确的判断一个数的类型时，可以用Object.prototype.toString.tocall 方法。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/12/24/圣杯布局和双飞翼布局/" rel="next" title="css 圣杯布局和双飞翼布局">
+                <i class="fa fa-chevron-left"></i> css 圣杯布局和双飞翼布局
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/12/24/继承/" rel="prev" title="Javascript 面向对象">
+                Javascript 面向对象 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="qunqunyang">
+          <p class="site-author-name" itemprop="name">qunqunyang</p>
+           
+              <p class="site-description motion-element" itemprop="description">过好每一天。</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#先介绍下js的基本类型和引用类型"><span class="nav-number">1.</span> <span class="nav-text">先介绍下js的基本类型和引用类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#typeof和instanceof"><span class="nav-number">2.</span> <span class="nav-text">typeof和instanceof</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#typeof的原理："><span class="nav-number">3.</span> <span class="nav-text">typeof的原理：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#instanceof的原理"><span class="nav-number">4.</span> <span class="nav-text">instanceof的原理</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">qunqunyang</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
