@@ -39,6 +39,28 @@
   </entry>
   
   <entry>
+    <title>js的基本类型和引用类型</title>
+    <link href="http://qunqunyang.me/2018/12/24/js%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B%E5%92%8C%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B/"/>
+    <id>http://qunqunyang.me/2018/12/24/js的基本类型和引用类型/</id>
+    <published>2018-12-24T04:56:14.383Z</published>
+    <updated>2019-01-13T08:42:27.675Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="1、基本类型"><a href="#1、基本类型" class="headerlink" title="1、基本类型"></a>1、基本类型</h2><blockquote><p>基本的数据类型有：undefined，boolean，number，string，null.基本类型的访问是按值访问的，就是说你可以操作保存在变量中的实际的值。</p></blockquote><h3 id="1-基本类型的值是不可变得："><a href="#1-基本类型的值是不可变得：" class="headerlink" title="1).基本类型的值是不可变得："></a>1).基本类型的值是不可变得：</h3><p>任何方法都无法改变一个基本类型的值，比如一个字符串：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">'jozo'</span>;</span><br><span class="line">name.toUpperCase(); <span class="comment">// 输出 'JOZO'</span></span><br><span class="line"><span class="built_in">console</span>.log(name); <span class="comment">// 输出  'jozo'</span></span><br></pre></td></tr></table></figure></p><p>会发现原始的name并未发生改变，而是调用了toUpperCase()方法后返回的是一个新的字符串。<br>再来看个：</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = <span class="string">'jozo'</span>;</span><br><span class="line"> person.age = <span class="number">22</span>;</span><br><span class="line"> person.method = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="comment">//...&#125;;</span></span><br><span class="line"> <span class="built_in">console</span>.log(person.age); <span class="comment">// undefined</span></span><br><span class="line"> <span class="built_in">console</span>.log(person.method); <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure><p>通过上面代码可知，我们不能给基本类型添加属性和方法，再次说明基本类型是不可变得；</p><h3 id="2-基本类型的比较是值的比较"><a href="#2-基本类型的比较是值的比较" class="headerlink" title="2).基本类型的比较是值的比较"></a>2).基本类型的比较是值的比较</h3><p>只有在它们的值相等的时候它们才相等。<br>但你可能会这样：</p><figure class="highlight plain"><figcaption><span>a </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var b = true;</span><br><span class="line">console.log(a == b);//true</span><br></pre></td></tr></table></figure><p>它们不是相等吗？其实这是类型转换和 == 运算符的知识了，也就是说在用==比较两个不同类型的变量时会进行一些类型转换。像上面的比较先会把true转换为数字1再和数字1进行比较，结果就是true了。 这是当比较的两个值的类型不同的时候==运算符会进行类型转换，但是当两个值的类型相同的时候，<br>即使是==也相当于是===。<br><figure class="highlight plain"><figcaption><span>a </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var b = &apos;jozo&apos;;</span><br><span class="line">console.log(a === b);//true</span><br></pre></td></tr></table></figure></p><h3 id="基本数据类型是存放在栈区的"><a href="#基本数据类型是存放在栈区的" class="headerlink" title="基本数据类型是存放在栈区的"></a>基本数据类型是存放在栈区的</h3><p>假如有以下几个基本类型的变量：</p><p>var name = “jozo”;<br>var city = “guangzhou”;<br>var age = 22;</p><h2 id="2-引用类型"><a href="#2-引用类型" class="headerlink" title="2.引用类型"></a>2.引用类型</h2><p>引用类型会比较好玩有趣一些。<br>除了上面的一些类型之外都是引用类型了，也可以说就是对象了，对象是属性和方法的集合<br>也就是说引用类型可以拥有属性和方法，属性又可以包含基本类型和引用类型。来看看引用类型的一些特性：</p><h3 id="1-引用类型的值是可变的"><a href="#1-引用类型的值是可变的" class="headerlink" title="1).引用类型的值是可变的"></a>1).引用类型的值是可变的</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">我们可以为引用类型添加属性和方法，也可以删除其属性和方法，如：</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> person = &#123;&#125;;<span class="comment">//创建空对象 --引用类型</span></span><br><span class="line">person.name = <span class="string">'jozo'</span>;</span><br><span class="line">person.age = <span class="number">22</span>;</span><br><span class="line">person.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="built_in">console</span>.log(person.name);&#125; </span><br><span class="line">person.sayName();<span class="comment">// 'jozo'</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">delete</span> person.name; <span class="comment">//删除person对象的name属性</span></span><br><span class="line">person.sayName(); <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure><p>上面代码说明引用类型可以拥有属性和方法，并且是可以动态改变的。</p><h3 id="2-1引用类型的值是同时保存在栈内存和堆内存中的对象"><a href="#2-1引用类型的值是同时保存在栈内存和堆内存中的对象" class="headerlink" title="2.1引用类型的值是同时保存在栈内存和堆内存中的对象"></a>2.1引用类型的值是同时保存在栈内存和堆内存中的对象</h3><p>   javascript和其他语言不同，其不允许直接访问内存中的位置，也就是说不能直接操作对象的内存空间，那我们操作啥呢？ 实际上，是操作对象的引用，<br>    所以引用类型的值是按引用访问的。<br>    准确地说，引用类型的存储需要内存的栈区和堆区（堆区是指内存里的堆内存）共同完成，栈区内存保存变量标识符和指向堆内存中该对象的指针，<br>    也可以说是该对象在堆内存的地址。<br>    假如有以下几个对象：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var person1 = &#123;name:&apos;jozo&apos;&#125;;</span><br><span class="line">var person2 = &#123;name:&apos;xiaom&apos;&#125;;</span><br><span class="line">var person3 = &#123;name:&apos;xiaoq&apos;&#125;;</span><br></pre></td></tr></table></figure></p><h3 id="2-2-引用类型的比较是引用的比较"><a href="#2-2-引用类型的比较是引用的比较" class="headerlink" title="2.2 引用类型的比较是引用的比较"></a>2.2 引用类型的比较是引用的比较</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">var</span> person1 = <span class="string">'&#123;&#125;'</span>;</span><br><span class="line"> <span class="keyword">var</span> person2 = <span class="string">'&#123;&#125;'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(person1 == person2); <span class="comment">// true</span></span><br></pre></td></tr></table></figure><h3 id="2-3-简单赋值"><a href="#2-3-简单赋值" class="headerlink" title="2.3 简单赋值"></a>2.3 简单赋值</h3><pre><code>在从一个变量向另一个变量赋值基本类型时，会在该变量上创建一个新值，然后再把该值复制到为新变量分配的位置上：var a = 10;var b = a;a ++ ;console.log(a); // 11console.log(b); // 10</code></pre><p>   此时，a中保存的值为 10 ，当使用 a 来初始化 b 时，b 中保存的值也为10，但b中的10与a中的是完全独立的，该值只是a中的值的一个副本，此后，<br>    这两个变量可以参加任何操作而相互不受影响。</p><h3 id="2-4-对象引用"><a href="#2-4-对象引用" class="headerlink" title="2.4 对象引用"></a>2.4 对象引用</h3><p>   当从一个变量向另一个变量赋值引用类型的值时，同样也会将存储在变量中的对象的值复制一份放到为新变量分配的空间中。前面讲引用类型的时候提到，<br>    保存在变量中的是对象在堆内存中的地址，所以，与简单赋值不同，这个值的副本实际上是一个指针，而这个指针指向存储在堆内存的一个对象。那么赋值操作后，<br>    两个变量都保存了同一个对象地址，则这两个变量指向了同一个对象。因此，改变其中任何一个变量，都会相互影响：</p><pre><code>var a = {}; // a保存了一个空对象的实例var b = a;  // a和b都指向了这个空对象a.name = &apos;jozo&apos;;console.log(a.name); // &apos;jozo&apos;console.log(b.name); // &apos;jozo&apos;b.age = 22;console.log(b.age);// 22console.log(a.age);// 22console.log(a == b);// true</code></pre><h2 id="3-基本包装类型-包装对象-："><a href="#3-基本包装类型-包装对象-：" class="headerlink" title="3 基本包装类型(包装对象)："></a>3 基本包装类型(包装对象)：</h2><p>先看下以下代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var s1 = &quot;helloworld&quot;;</span><br><span class="line">var s2 = s1.substr(4);</span><br></pre></td></tr></table></figure></p><p>上面我们说到字符串是基本数据类型，不应该有方法，那为什么这里s1可以调用substr()呢？</p><p>通过翻阅js权威指南第3.6章节和高级程序设计第5.6章节我们得知，ECMAScript还提供了三个特殊的引用类型Boolean,String,Number.我们称这三个特殊的引用类型为基本包装类型，也叫包装对象.</p><p>也就是说当读取string,boolean和number这三个基本数据类型的时候，后台就会创建一个对应的基本包装类型对象，从而让我们能够调用一些方法来操作这些数据.</p><p>所以当第二行代码访问s1的时候，后台会自动完成下列操作：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">创建String类型的一个实例；// var s1 = new String(&quot;helloworld&quot;);</span><br><span class="line"></span><br><span class="line">在实例上调用指定方法；// var s2 = s1.substr(4);</span><br><span class="line"></span><br><span class="line">销毁这个实例；// s1 = null;</span><br></pre></td></tr></table></figure></p><p>正因为有第三步这个销毁的动作，所以你应该能够明白为什么基本数据类型不可以添加属性和方法，这也正是基本装包类型和引用类型主要区别：对象的生存期.使用new操作符创建的引用类型的实例，在执行流离开当前作用域之前都是一直保存在内存中.而自动创建的基本包装类型的对象，则只存在于一行代码的执行瞬间，然后立即被销毁</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;1、基本类型&quot;&gt;&lt;a href=&quot;#1、基本类型&quot; class=&quot;headerlink&quot; title=&quot;1、基本类型&quot;&gt;&lt;/a&gt;1、基本类型&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;基本的数据类型有：undefined，boolean，number，string，
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>js前端常见跨域</title>
     <link href="http://qunqunyang.me/2018/09/21/%E8%B7%A8%E5%9F%9F/"/>
     <id>http://qunqunyang.me/2018/09/21/跨域/</id>
@@ -123,28 +145,6 @@
         &lt;h3 id=&quot;背景：&quot;&gt;&lt;a href=&quot;#背景：&quot; class=&quot;headerlink&quot; title=&quot;背景：&quot;&gt;&lt;/a&gt;背景：&lt;/h3&gt;&lt;blockquote&gt;
 &lt;p&gt;js中对Object的一些操作&lt;/p&gt;
 &lt;p&gt;对象是值： 成对的名称（字符串）和值（任何值），其中名称通过
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>js的基本类型和引用类型</title>
-    <link href="http://qunqunyang.me/2018/06/11/js%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B%E5%92%8C%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B/"/>
-    <id>http://qunqunyang.me/2018/06/11/js的基本类型和引用类型/</id>
-    <published>2018-06-11T02:36:43.928Z</published>
-    <updated>2018-07-16T05:40:01.929Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="1、基本类型和引用类型的区别："><a href="#1、基本类型和引用类型的区别：" class="headerlink" title="1、基本类型和引用类型的区别："></a>1、基本类型和引用类型的区别：</h3><p>1） 基本类型： </p><p>2）  引用类型</p><p>3） 两者区别</p><p>4） 操作</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;1、基本类型和引用类型的区别：&quot;&gt;&lt;a href=&quot;#1、基本类型和引用类型的区别：&quot; class=&quot;headerlink&quot; title=&quot;1、基本类型和引用类型的区别：&quot;&gt;&lt;/a&gt;1、基本类型和引用类型的区别：&lt;/h3&gt;&lt;p&gt;1） 基本类型： &lt;/p&gt;
-&lt;p&gt;2
       
     
     </summary>
