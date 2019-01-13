@@ -95,14 +95,17 @@
 
 
 
+<meta name="description" content="一、user-agent看一下Chrome的User-Agent这里可以看出来，该Chrome是MAC的发布版，采用了兼容了Mozilla，Safari，内核兼容AppleWebkit和Gecko User-Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chro">
 <meta property="og:type" content="article">
-<meta property="og:title" content="promise">
-<meta property="og:url" content="http://qunqunyang.me/2018/12/24/promise的前世今生/index.html">
+<meta property="og:title" content="flag">
+<meta property="og:url" content="http://qunqunyang.me/2018/12/24/http请求和响应/index.html">
 <meta property="og:site_name" content="yangqun">
+<meta property="og:description" content="一、user-agent看一下Chrome的User-Agent这里可以看出来，该Chrome是MAC的发布版，采用了兼容了Mozilla，Safari，内核兼容AppleWebkit和Gecko User-Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chro">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-24T06:52:05.657Z">
+<meta property="og:updated_time" content="2018-12-24T04:56:14.382Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="promise">
+<meta name="twitter:title" content="flag">
+<meta name="twitter:description" content="一、user-agent看一下Chrome的User-Agent这里可以看出来，该Chrome是MAC的发布版，采用了兼容了Mozilla，Safari，内核兼容AppleWebkit和Gecko User-Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chro">
 
 
 
@@ -130,13 +133,13 @@
 
 
 
-  <link rel="canonical" href="http://qunqunyang.me/2018/12/24/promise的前世今生/">
+  <link rel="canonical" href="http://qunqunyang.me/2018/12/24/http请求和响应/">
 
 
 
 
 
-  <title>promise | yangqun</title>
+  <title>flag | yangqun</title>
   
 
 
@@ -265,7 +268,7 @@
   
 
   <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://qunqunyang.me/2018/12/24/promise的前世今生/">
+    <link itemprop="mainEntityOfPage" href="http://qunqunyang.me/2018/12/24/http请求和响应/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="qunqunyang">
@@ -282,7 +285,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">promise</h1>
+          <h1 class="post-title" itemprop="name headline">flag</h1>
         
 
         <div class="post-meta">
@@ -294,7 +297,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-24T14:52:05+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-24T12:56:14+08:00">
                 2018-12-24
               </time>
             
@@ -329,7 +332,35 @@
       
 
       
-        <hr>
+        <h3 id="一、user-agent"><a href="#一、user-agent" class="headerlink" title="一、user-agent"></a>一、user-agent</h3><h3 id="看一下Chrome的User-Agent"><a href="#看一下Chrome的User-Agent" class="headerlink" title="看一下Chrome的User-Agent"></a>看一下Chrome的User-Agent</h3><h3 id="这里可以看出来，该Chrome是MAC的发布版，采用了兼容了Mozilla，Safari，内核兼容AppleWebkit和Gecko"><a href="#这里可以看出来，该Chrome是MAC的发布版，采用了兼容了Mozilla，Safari，内核兼容AppleWebkit和Gecko" class="headerlink" title="这里可以看出来，该Chrome是MAC的发布版，采用了兼容了Mozilla，Safari，内核兼容AppleWebkit和Gecko"></a>这里可以看出来，该Chrome是MAC的发布版，采用了兼容了Mozilla，Safari，内核兼容AppleWebkit和Gecko</h3><ul>
+<li>User-Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36</li>
+<li>看一下火狐的User-Agent<br>可以看出来，该Firefox为Windows平台的发布版，内核为Firefox的自家内核Gecko</li>
+<li>User-Agent:Mozilla/5.0 (Windows NT 6.1; WOW64; rv:30.0) Gecko/20100101 </li>
+<li>Firefox/30.0</li>
+<li>看一下Mac上的Safari</li>
+<li>看出来，兼容了Mozilla，为Mac系统的发布版，采用自家的Webkit内核(Apple)</li>
+<li>User-Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) </li>
+<li></li>
+<li><p>AppleWebKit/537.75.14 (KHTML, like Gecko) Version/7.0.3 Safari/537.75.14</p>
+</li>
+<li><p>最后是IE的User-Agent</p>
+<p>看出来，兼容了Mozilla，采用兼容模式的IE10，采用自家的Trident内核</p>
+</li>
+<li>User-Agent:Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Win64; x64; Trident/6.0)<ul>
+<li>模拟移动设备</li>
+</ul>
+</li>
+<li><p>我们这里可以模拟一个移动设备来查看一下，显示效果，模拟设备，Galaxy Note II ，通过该设备向服务端发送请求</p>
+</li>
+<li><p>请求标头，</p>
+</li>
+<li>User-Agent:Mozilla/5.0 (Linux; U; Android 4.1; en-us; GT-N7100 Build/JRO03C) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30</li>
+</ul>
+<p>二、host  主机域名，或ip地址</p>
+<p>三、accept</p>
+<p>四、refer</p>
+<p>五、gzip</p>
+<p>六、ttransfer-encoding</p>
 
       
     </div>
@@ -366,8 +397,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/12/24/鱼丁系/" rel="next" title="过去的贰零壹柒年（魚丁系）">
-                <i class="fa fa-chevron-left"></i> 过去的贰零壹柒年（魚丁系）
+              <a href="/2018/12/24/git默认行为/" rel="next" title="聊一聊git">
+                <i class="fa fa-chevron-left"></i> 聊一聊git
               </a>
             
           </div>
@@ -375,6 +406,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/12/24/hello-world/" rel="prev" title="Hello Hexo">
+                Hello Hexo <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -422,8 +457,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="qunqunyang">
           <p class="site-author-name" itemprop="name">qunqunyang</p>
@@ -472,6 +516,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、user-agent"><span class="nav-number">1.</span> <span class="nav-text">一、user-agent</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#看一下Chrome的User-Agent"><span class="nav-number">2.</span> <span class="nav-text">看一下Chrome的User-Agent</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#这里可以看出来，该Chrome是MAC的发布版，采用了兼容了Mozilla，Safari，内核兼容AppleWebkit和Gecko"><span class="nav-number">3.</span> <span class="nav-text">这里可以看出来，该Chrome是MAC的发布版，采用了兼容了Mozilla，Safari，内核兼容AppleWebkit和Gecko</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
